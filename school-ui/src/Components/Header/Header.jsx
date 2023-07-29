@@ -35,9 +35,9 @@ function Header() {
         <FaBars  className='responsive-icon' onClick={openHeader}/>
             <ul className="list-menu">
                <li className="list-menu-item"><Link to="/">صفحه اصلی</Link></li>
-               <li className="list-menu-item"><Link to="/">پیش ثبت نام</Link></li>
-               <li className="list-menu-item list-btn"><Link to="/"><BiSolidVideos className='list-icon'/> ویدیوهای آموزشی</Link></li>
-               <li className="list-menu-item list-btn"><Link to="/"><BiLogIn className='list-icon'/> ورود مدیر</Link></li>
+               <li className="list-menu-item"><a href='https://royan-reserve.ir'>پیش ثبت نام</a></li>
+               <li className="list-menu-item list-btn"><Link to="/login"><BiSolidVideos className='list-icon'/> ویدیوهای آموزشی</Link></li>
+               <li className="list-menu-item list-btn"><Link to="/login"><BiLogIn className='list-icon'/> ورود مدیر</Link></li>
             </ul>
             <img src="./images/logo.png" alt="school logo"  className='logo'/>
         </div>
