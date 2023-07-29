@@ -1,0 +1,30 @@
+.main-about-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.main-about-text , .main-about-image{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+.main-about-text h2{
+    text-align: right;
+    font-family: kalameh;
+    font-size: 2rem;
+    padding: 15px;
+    color: #467239;
+}
+.main-about-text p{
+    color: #555;
+    width: 80%;
+    text-align: justify;
+    line-height: 35px;
+    padding: 15px;
+}
+.main-about-image img{
+    width: 90%;
+    height: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+}

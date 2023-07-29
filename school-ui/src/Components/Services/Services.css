@@ -1,0 +1,70 @@
+.services{
+    margin: 20px auto;
+    padding: 30px 10px;
+}
+.icon-container{
+    background-color: #4682A9;
+    box-shadow: rgba(32, 32, 78, 0.5) 0px 30px 60px -12px, rgba(51, 78, 136, 0.8) 0px 18px 36px -18px;
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+    width: 20%;
+    text-align: center;
+    border-radius: 15px;
+}
+.first-icon{
+    background-color: #4682A9;
+    box-shadow: rgba(32, 32, 78, 0.5) 0px 30px 60px -12px, rgba(51, 78, 136, 0.8) 0px 18px 36px -18px;
+}
+.second-icon{
+    background-color: #F11A7B;
+    box-shadow: rgba(146, 47, 113, 0.5) 0px 30px 60px -12px, rgba(133, 23, 133, 0.8) 0px 18px 36px -18px;
+}
+.third-icon{
+    background-color: #F0DE36;
+    box-shadow: rgba(230, 226, 7, 0.5) 0px 30px 60px -12px, rgba(212, 235, 5, 0.8) 0px 18px 36px -18px;
+}
+.fourth-icon{
+    background-color: #1A5D1A;
+    box-shadow: rgba(60, 179, 37, 0.5) 0px 30px 60px -12px, rgba(10, 179, 19, 0.8) 0px 18px 36px -18px;
+}
+.serveices-title{
+    color: #467239;
+    font-size: 2rem;
+    font-family: kalameh;
+    text-align: center;
+}
+.services-container{
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+.service-item{
+    width: 20%;
+    margin: 10px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+.service-item:hover{
+    transform: translateY(15px);
+}
+.service-title{
+    font-family: kalameh;
+    color: #467239;
+    font-size: 1.4rem;
+    padding: 10px;
+}
+.service-description{
+    padding: 10px;
+}
+.service-description p{
+    color: #444;
+    padding: 10px 0;
+    width: 100%;
+    text-align: justify;
+    font-size: 0.9rem;
+}
