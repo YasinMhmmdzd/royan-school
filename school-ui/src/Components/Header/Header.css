@@ -1,6 +1,6 @@
 header{
     background-image: url("../../../public/images/background.jpg");
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -95,5 +95,13 @@ header::before{
     to{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+@media only screen and (max-width:770px){
+    .list-menu{
+        display: none;
+    }
+    .go-to-down{
+        display: none;
     }
 }
