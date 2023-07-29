@@ -22,7 +22,7 @@ function Header() {
       {isOpenHeader && (
       <div className="responsive-menu">
         <AiOutlineClose onClick={closeHeader} className='close-icon'/>
-      <img src="./images/logo-blck.png" alt="school logo"  className='logo'/>
+      <img src="./images/logo-black.png" alt="school logo"  className='logo'/>
         <ul className='responsive-list'>
           <li>صفحه اصلی</li>
           <li>پیش ثبت نام</li>
