@@ -8,6 +8,7 @@
     "author": "noyan",
     "license": "MIT",
     "devDependencies": {
+        "@types/node": "^20.4.5",
         "dotenv": "^16.3.1",
         "morgan": "^1.10.0",
         "nodemon": "^3.0.1"
