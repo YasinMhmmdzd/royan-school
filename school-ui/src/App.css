@@ -1,0 +1,24 @@
+@font-face {
+    font-family: kalameh;
+    src: url("../public/fonts/kalameh-bold.TTF");
+}
+@font-face {
+    font-family: mtn-light;
+    src: url("../public/fonts/mtn-light.ttf");
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: mtn-light;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
