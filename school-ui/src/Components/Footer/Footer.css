@@ -1,0 +1,39 @@
+footer{
+    background-color: #19191d;
+    color: white;
+}
+.top-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+.right-footer-title{
+    font-family: kalameh;
+    font-size: 1.8rem;
+    padding: 50px 0;
+}
+.right-footer p{
+    padding: 10px 0;
+    font-size: 17px;
+}
+.left-footer img{
+    width: 200px;
+    height: 125px;
+}
+.social-media{
+    padding: 25px 0 0 0;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+.social-media a{
+    color: #ddd;
+    margin:0 12px;
+}
+.copyright{
+    border-top: 1px solid #888;
+    color: #ccc;
+    font-size: 15px;
+    padding: 10px;
+    text-align: center;
+}
