@@ -1,0 +1,99 @@
+header{
+    background-image: url("../../../public/images/background.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+    position: relative;
+    z-index: 1000;
+}
+header::before{
+    background-image: linear-gradient(to left bottom , rgba(0 , 0 , 0 , 0.2) , rgba(0 , 0 , 0 , 0.8));
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1000;
+}
+.top-menu{
+    display: flex;
+    justify-content: space-between;
+}
+.list-menu{
+    padding: 15px 0;
+}
+.list-menu-item{
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+}
+.list-menu-item a{
+    color: white;
+}
+.list-btn{
+    border: 1px solid #1c741c;
+    background-color: #1c741c;
+    border-radius: 10px;
+    font-family: kalameh;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+.list-btn:hover{
+    background-color: transparent;
+}
+.logo{
+    width: 200px;
+    height: 100px;
+    padding-left: 10px;
+}
+.header-title{
+    font-family: kalameh;
+    color: white;
+    font-size: 3.2rem;
+    text-align: center;
+    margin: 50px auto;
+    animation: load-title 2s ease-in-out;
+}
+.school-name{
+    color: #1c741c;
+}
+.middle-text{
+    color: white;
+    font-size: 1.5rem;
+    font-family: kalameh;
+    text-align: center;
+    margin: 25px auto;
+}
+.go-to-down{
+    color: #ccc;
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    right: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    animation: go-to-down 1.5s ease-in-out infinite;
+}
+@keyframes load-title{
+    from{
+        opacity: 0;
+        transform: translateX(15px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes go-to-down{
+    from{
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
