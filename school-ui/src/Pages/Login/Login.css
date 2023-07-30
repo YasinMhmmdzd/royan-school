@@ -4,7 +4,7 @@
     margin: 50px auto;
     display: flex;
     border-radius: 20px;
-    height: 80vh;
+    height: 85vh;
 }
 .right-login-form , .left-login-form{
     width: 50%;
@@ -60,6 +60,11 @@
 .login-input:focus{
     border: 1px solid #1c741c;
     box-shadow: 0 0 5px #1c741c;
+}
+.err{
+    color: red;
+    font-family: kalameh;
+    text-align: center;
 }
 .left-login-form{
     background-image: url("../../../public/images/bck-login.jpg");
