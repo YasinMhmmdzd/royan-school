@@ -7,7 +7,9 @@ function Login() {
     const [isSubmitted , setIsSubmitted] = useState(false)
     const [isStudentActive , setIsStudentActive] = useState(true)
     const [isAdminActive , setIsAdminActive] = useState(false)
-    const submitHandler = (e) => {
+    const [adminUserName , setAdminUserName] = useState("")
+    const [adminUserPassword , setAdminUserPassword] = useState("")
+    const submitStudentHandler = (e) => {
         e.preventDefault()
         setIsSubmitted(true)
         if(studentNationalCode.length === 10 || studentPhoneNumber.length === 11){
@@ -31,7 +33,8 @@ function Login() {
                         <button className={isStudentActive ? 'role-btn active' : 'role-btn'} onClick={setStudnetActive}>دانش آموز</button>
                         <button className={isAdminActive ? 'role-btn active' : 'role-btn'} onClick={setAdminActive}>مدیر</button>
                     </div>
-                <form onSubmit={submitHandler}>
+                    {isStudentActive && (
+                <form onSubmit={submitStudentHandler}>
                     <input type="text" placeholder='کدملی' className='login-input' onChange={(e) =>setStudentNationalCode(e.target.value)}/>
                     {(isSubmitted && studentNationalCode.length !== 10) && (
                         <p className="err">کدملی باید ۱۰ رقم باشد</p>
@@ -42,6 +45,20 @@ function Login() {
                     )}
                     <button className='login-btn'>ورود</button>
                 </form>
+                    )}
+                    {isAdminActive && (
+                        <form onSubmit={submitStudentHandler}>
+                       <input type="text" placeholder='نام کاربری' className='login-input' onChange={(e) =>setAdminUserName(e.target.value)}/>
+                        {(isSubmitted && adminUserName.length < 6) && (
+                         <p className="err">نام کاربری باید بیشتر از ۶ کاراکتر باشد</p>
+                        )}
+                        <input type="password" placeholder='رمز عبور' className='login-input' onChange={(e) =>setAdminUserPassword(e.target.value)}/>
+                        {(isSubmitted && adminUserPassword.length < 8) && (
+                        <p className="err">رمز عبور باید بیشتر از ۸کاراکتر باشد</p>
+                        )}
+                         <button className='login-btn'>ورود</button>
+                                   </form>
+                    )}
             </div>
             <div className="left-login-form">
                 <h1>

@@ -31,6 +31,9 @@
     color: white;
     font-family: kalameh;
 }
+form{
+    animation: load-form 0.5s ease-in-out;
+}
 .login-btn{
     all: unset;
     background-color: #1c741c;
@@ -91,4 +94,12 @@
     right: 20px;
     z-index: 1000;
     font-size: 1.5rem;
+}
+@keyframes load-form {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
