@@ -45,3 +45,26 @@
 .middle-box button:hover{
     transform: translateX(-10px);
 }
+@media only screen and (max-width:950px){
+    .middle-box{
+        background-image: none;
+        background-color: #67c267;
+    }
+    .middle-box-text{
+        width: 100%;
+    }
+    .middle-box button {
+        width: 75%;
+        background-color: #F0DE36;
+    }
+}
+@media only screen and (max-width:500px){
+    .middle-box{
+        text-align: center;
+        background-color: none;
+        background-image: url("../../../public/images/bck-conference.jpg");
+    }
+    .middle-box-text h2{
+        font-size: 1.2rem;
+    }
+}

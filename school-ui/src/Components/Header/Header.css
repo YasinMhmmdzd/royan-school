@@ -1,6 +1,5 @@
 header{
     background-image: url("../../../public/images/background.jpg");
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,6 +16,32 @@ header::before{
     right: 0;
     position: absolute;
     z-index: -1000;
+}
+.responsive-icon{
+    color: white;
+    font-size: 30px;
+    padding: 40px 10px;
+    display: none;
+}
+.responsive-menu{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    animation: loadMenu 1s ease-in-out;
+}
+.close-icon{
+    display: block;
+    font-size: 25px;
+    padding: 10px;
+}
+.responsive-list li{
+    padding: 10px;
+    margin: 15px;
+    color: #444;
+    font-size: 20px;
 }
 .top-menu{
     display: flex;
@@ -54,7 +79,7 @@ header::before{
     color: white;
     font-size: 3.2rem;
     text-align: center;
-    margin: 50px auto;
+    margin: 20px auto;
     animation: load-title 2s ease-in-out;
 }
 .school-name{
@@ -95,5 +120,29 @@ header::before{
     to{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+@keyframes loadMenu{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@media only screen and (max-width:770px){
+    .list-menu{
+        display: none;
+    }
+    .go-to-down{
+        display: none;
+    }
+    .responsive-icon{
+        display: block;
+    }
+}
+@media only screen and (max-width:400px){
+    .middle-text{
+        font-size: 1.3rem;
     }
 }
