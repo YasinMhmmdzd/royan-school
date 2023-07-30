@@ -4,7 +4,7 @@
     margin: 50px auto;
     display: flex;
     border-radius: 20px;
-    height: 85vh;
+    height: 85%;
 }
 .right-login-form , .left-login-form{
     width: 50%;
@@ -115,5 +115,25 @@ form{
     }
     to{
         opacity: 1;
+    }
+}
+@media only screen and (max-width:950px){
+    .left-login-form{
+        display: none;
+    }
+    .right-login-form{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:500px){
+    .login-form{
+        width: 90%;
+    }
+    .login-input{
+        width: 85%;
+        margin: 40px auto;
+    }
+    .login-btn{
+        width: 35%;
     }
 }
