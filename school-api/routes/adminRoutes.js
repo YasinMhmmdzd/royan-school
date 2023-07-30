@@ -12,9 +12,16 @@ router.get("/", auth, (req, res) => {
 
 router.post("/signup", async (req, res) => {
     try {
-        const { password, userName, fullname } = req.body;
+        const { password, userName, fullName } = req.body;
+        if (!password || !userName || !fullName) {
+            return res.json({ message: "input-not-valid" });
+        }
+        const unique = await Admin.findOne({ userName });
+        if (unique) {
+            return res.json({ message: "admin-used" });
+        }
         const hash = await bcrypt.hash(password, 10);
-        await Admin.create({ password: hash, userName, fullname });
+        await Admin.create({ password: hash, userName, fullName });
     } catch (error) {
         console.log(error);
     }
