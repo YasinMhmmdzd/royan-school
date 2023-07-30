@@ -141,3 +141,8 @@ header::before{
         display: block;
     }
 }
+@media only screen and (max-width:400px){
+    .middle-text{
+        font-size: 1.3rem;
+    }
+}
