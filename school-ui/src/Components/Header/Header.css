@@ -1,6 +1,5 @@
 header{
     background-image: url("../../../public/images/background.jpg");
-    /* background-attachment: fixed; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -80,7 +79,7 @@ header::before{
     color: white;
     font-size: 3.2rem;
     text-align: center;
-    margin: 50px auto;
+    margin: 20px auto;
     animation: load-title 2s ease-in-out;
 }
 .school-name{
