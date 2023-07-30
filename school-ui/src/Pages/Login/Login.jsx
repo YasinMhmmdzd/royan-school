@@ -3,17 +3,26 @@ import "./Login.css"
 function Login() {
     const [studentNationalCode , setStudentNationalCode] = useState("")
     const [studentPhoneNumber , setStudnetPhoneNumber] = useState("")
-    const [status , setStatus] = useState("")
-    const [isSubmitted , setIsSubmitted] = useState(false)
+    const [studentStatus , setStudentStatus] = useState("")
+    const [adminStatus , setAdminStatus] = useState("")
+    const [isStudentSubmitted , setIsStudentSubmitted] = useState(false)
     const [isStudentActive , setIsStudentActive] = useState(true)
     const [isAdminActive , setIsAdminActive] = useState(false)
     const [adminUserName , setAdminUserName] = useState("")
     const [adminUserPassword , setAdminUserPassword] = useState("")
+    const [isAdminSubmitted , setIsAdminSubmitted] = useState(false)
     const submitStudentHandler = (e) => {
         e.preventDefault()
-        setIsSubmitted(true)
-        if(studentNationalCode.length === 10 || studentPhoneNumber.length === 11){
-            setStatus("pending")
+        setIsStudentSubmitted(true)
+        if(studentNationalCode.length === 10 && studentPhoneNumber.length === 11){
+            setStudentStatus("pending")
+        }
+    }
+    const submitAdminHandler = (e) =>{
+        e.preventDefault()
+        setIsAdminSubmitted(true)
+        if(adminUserName.length > 6 && adminUserPassword.length > 8){
+            setAdminStatus("pending")
         }
     }
     const setAdminActive = () => {
@@ -36,28 +45,34 @@ function Login() {
                     {isStudentActive && (
                 <form onSubmit={submitStudentHandler}>
                     <input type="text" placeholder='کدملی' className='login-input' onChange={(e) =>setStudentNationalCode(e.target.value)}/>
-                    {(isSubmitted && studentNationalCode.length !== 10) && (
+                    {(isStudentSubmitted && studentNationalCode.length !== 10) && (
                         <p className="err">کدملی باید ۱۰ رقم باشد</p>
                     )}
                     <input type="text" placeholder='شماره تلفن' className='login-input' onChange={(e) =>setStudnetPhoneNumber(e.target.value)}/>
-                    {(isSubmitted && studentPhoneNumber.length !== 11) && (
+                    {(isStudentSubmitted && studentPhoneNumber.length !== 11) && (
                         <p className="err">شماره همراه باید ۱۱رقم باشد</p>
                     )}
                     <button className='login-btn'>ورود</button>
+                    {(isStudentSubmitted && studentStatus === "pending") && (
+                        <p className="loading">درحال پردازش ...</p>
+                    )}
                 </form>
                     )}
                     {isAdminActive && (
-                        <form onSubmit={submitStudentHandler}>
+                        <form onSubmit={submitAdminHandler}>
                        <input type="text" placeholder='نام کاربری' className='login-input' onChange={(e) =>setAdminUserName(e.target.value)}/>
-                        {(isSubmitted && adminUserName.length < 6) && (
+                        {(isAdminSubmitted && adminUserName.length < 6) && (
                          <p className="err">نام کاربری باید بیشتر از ۶ کاراکتر باشد</p>
                         )}
                         <input type="password" placeholder='رمز عبور' className='login-input' onChange={(e) =>setAdminUserPassword(e.target.value)}/>
-                        {(isSubmitted && adminUserPassword.length < 8) && (
+                        {(isAdminSubmitted && adminUserPassword.length < 8) && (
                         <p className="err">رمز عبور باید بیشتر از ۸کاراکتر باشد</p>
                         )}
                          <button className='login-btn'>ورود</button>
-                                   </form>
+                         {(isAdminSubmitted && adminStatus === "pending") && (
+                        <p className="loading">درحال پردازش ...</p>
+                    )}
+                        </form>
                     )}
             </div>
             <div className="left-login-form">
