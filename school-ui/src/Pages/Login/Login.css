@@ -1,0 +1,89 @@
+.login-form{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    width: 75%;
+    margin: 50px auto;
+    display: flex;
+    border-radius: 20px;
+    height: 80vh;
+}
+.right-login-form , .left-login-form{
+    width: 50%;
+}
+.right-login-form{
+    margin: 0 auto;
+    text-align: center;
+}
+.right-login-form img{
+    width: 200px;
+    height: 125px;
+}
+.role-btn{
+    all: unset;
+    color: #1c741c;
+    padding: 10px;
+    border-radius: 30px;
+    width: 25%;
+    margin: 20px 0;
+    cursor: pointer;
+}
+.active{
+    background-color: #1c741c;
+    color: white;
+    font-family: kalameh;
+}
+.login-btn{
+    all: unset;
+    background-color: #1c741c;
+    color: white;
+    font-family: kalameh;
+    padding: 10px;
+    border-radius: 30px;
+    width: 25%;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.login-btn:hover{
+    transform: translateY(-5px);
+}
+.login-input{
+    all: unset;
+    padding: 10px;
+    width: 75%;
+    border: 1px solid #778b77;
+    border-radius: 30px;
+    margin: 20px auto;
+    display: block;
+    text-align: right;
+    transition: all 0.3s ease-in-out;
+}
+.login-input:focus{
+    border: 1px solid #1c741c;
+    box-shadow: 0 0 5px #1c741c;
+}
+.left-login-form{
+    background-image: url("../../../public/images/bck-login.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border-radius: 20px;
+}
+.left-login-form::after{
+    background-image: linear-gradient(to right bottom , rgba(0 , 0 , 0 , 0.5) , rgba(0 , 0 , 0 , 0.9));
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    border-radius: 20px;
+}
+.left-login-form h1{
+    color: white;
+    font-family: kalameh;
+    position: absolute;
+    bottom: 65px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 1.5rem;
+}
