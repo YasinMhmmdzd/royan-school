@@ -1,5 +1,6 @@
 import { Router } from "express";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 import { Admin } from "../model/adminModel.js";
 
@@ -11,20 +12,23 @@ router.get("/", (req, res) => {
 
 router.post("/login/admin", async (req, res) => {
     try {
-        console.log(req.body);
         const { userName, password } = req.body;
-
         const isMatch = await Admin.findOne({ userName });
-        if (!isMatch || password != isMatch.password) {
+        if (!isMatch || !(await bcrypt.compare(password, isMatch.password))) {
             return res.json({ message: "not-valid" });
         }
-        jwt.sign(isMatch, process.env.JWT_SECRET, { expiresIn: "6d" }, (err, token) => {
-            if (err) return console.log(err);
+        jwt.sign(
+            { id: isMatch._id, role: isMatch.role, fullName: isMatch.fullName, userName: isMatch.userName, password: isMatch.password },
+            process.env.JWT_SECRET,
+            { expiresIn: "6d" },
+            (err, token) => {
+                if (err) return console.log(err);
 
-            res.json({
-                token,
-            });
-        });
+                res.json({
+                    token,
+                });
+            }
+        );
     } catch (error) {
         console.log(error);
     }
