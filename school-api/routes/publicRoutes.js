@@ -28,3 +28,5 @@ router.get("/login/admin", async (req, res) => {
         console.log(error);
     }
 });
+
+export default router;
