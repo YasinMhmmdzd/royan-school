@@ -7,8 +7,8 @@ function Login() {
             <div className="right-login-form">
                     <img src="./images/logo-black.png" alt="لوگوی مدرسه رویان" />
                     <div className="select-role">
-                        <button>دانش آموز</button>
-                        <button>مدیر</button>
+                        <button className='role-btn active'>دانش آموز</button>
+                        <button className='role-btn'>مدیر</button>
                     </div>
                 <form>
                     <input type="text" placeholder='کدملی' className='login-input'/>
