@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import cors from "cors";
 
 import { connectDB } from "./utils/db.js";
 import publicRoutes from "./routes/publicRoutes.js";
@@ -13,6 +14,10 @@ if (process.env.NODE_ENV == "development") {
     app.use(morgan("dev"));
 }
 connectDB();
+
+//?custom middleware
+app.use(cors());
+app.use(express.json());
 
 //? routes
 app.use(publicRoutes);
