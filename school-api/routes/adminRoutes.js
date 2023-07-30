@@ -22,6 +22,7 @@ router.post("/signup", async (req, res) => {
         }
         const hash = await bcrypt.hash(password, 10);
         await Admin.create({ password: hash, userName, fullName });
+        res.json({ message: "admin-created" });
     } catch (error) {
         console.log(error);
     }
