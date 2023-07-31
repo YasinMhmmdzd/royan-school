@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Admin.css"
-import pageRoutes from '../../Routes'
 import RightNav from '../../Components/AdminComponents/RightNav/RightNav'
+import pageRoutes from '../../Routes'
 function Admin() {
   return (
     <div className="admin-container">
