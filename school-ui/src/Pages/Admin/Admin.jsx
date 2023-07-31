@@ -2,7 +2,9 @@ import React from 'react'
 import "./Admin.css"
 function Admin() {
   return (
-    <div>Admin</div>
+    <div className="admin-container">
+        
+    </div>
   )
 }
 
