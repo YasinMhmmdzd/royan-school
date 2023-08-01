@@ -6,16 +6,16 @@ import { Admin } from "../model/adminModel.js";
 
 const router = Router();
 
-// @desc signup admin for SuperAdmin
-// @route /admin/signup
+// @desc get about admin
+// @route GET /admin
 // @access private
 
 router.get("/", auth, (req, res) => {
-    res.json({ message: "verify-ok", user: req.user });
+    res.json({ message: "verify-ok", admin: req.user });
 });
 
 // @desc get list admins
-// @route /admin/getAll
+// @route GET /admin/getAll
 // @access private
 router.get("/getAll", auth, async (req, res) => {
     try {
@@ -26,6 +26,9 @@ router.get("/getAll", auth, async (req, res) => {
     }
 });
 
+// @desc  signup admin for SuperAdmin
+// @route POST /admin/signup
+// @access private
 router.post("/signup", auth, async (req, res) => {
     try {
         if (req.user.role == "admin") return res.json({ message: "admin-not-valid" });
@@ -46,7 +49,7 @@ router.post("/signup", auth, async (req, res) => {
 });
 
 // @desc delete admin
-// @route /admin/delete
+// @route DELETE /admin/delete
 // @access private
 
 router.delete("/delete/:userName?", auth, async (req, res) => {
