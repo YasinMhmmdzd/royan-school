@@ -28,7 +28,7 @@
 .list-link{
     transition: all 0.3s ease-in-out;
     display: block;
-    height: fit-content;
+    display: flex;
 }
 .list-menu-item-admin:hover .list-link{
     color: white;
