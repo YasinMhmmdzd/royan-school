@@ -17,6 +17,14 @@ router.get("/", auth, (req, res) => {
 // @desc get list admins
 // @route /admin/getAll
 // @access private
+router.get("/getAll", auth, async (req, res) => {
+    try {
+        const admins = await Admin.find();
+        res.json(admins);
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 router.post("/signup", auth, async (req, res) => {
     try {
