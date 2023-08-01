@@ -1,15 +1,14 @@
-
-.studnets-container h2{
+.admin-container h2{
     padding: 20px;
     font-family: kalameh;
     color: #78887e;
     font-size: 1.8rem;
 }
-.student-service-container{
+.admin-service-container{
     display: flex;
     justify-content: center;
 }
-.student-service{
+.admin-service{
     padding: 25px;
     margin: 30px auto;
     box-shadow: rgba(60, 103, 83, 0.5) 0px 30px 60px -12px, rgba(0, 63, 49, 0.5) 0px 18px 36px -18px;
@@ -18,19 +17,19 @@
     border-radius: 18px;
     transition: all 0.3s ease-in-out;
 }
-.student-service:hover{
+.admin-service:hover{
     transform: translateY(10px);
 }
 .top-service{
     display: flex;
     justify-content: space-between;
 }
-.student-service h3{
+.admin-service h3{
     font-family: kalameh;
     color: #78887e;
     font-size: 1.3rem;
 }
-.student-service-icon{
+.admin-service-icon{
     font-weight: bolder;
     font-size: 30px;
     color: #78887e;

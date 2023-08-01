@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Login.css"
+import axios from 'axios'
+import Cookies from 'js-cookie'
+import { Navigate } from 'react-router-dom'
 function Login() {
     const [studentNationalCode , setStudentNationalCode] = useState("")
     const [studentPhoneNumber , setStudnetPhoneNumber] = useState("")
@@ -11,6 +14,13 @@ function Login() {
     const [adminUserName , setAdminUserName] = useState("")
     const [adminUserPassword , setAdminUserPassword] = useState("")
     const [isAdminSubmitted , setIsAdminSubmitted] = useState(false)
+    const [adminToken , setAdminToken] = useState('')
+    const [userLoggedIn , setUserLoggedIn] = useState(false)
+    useEffect(() => {
+        if(Cookies.get("adminToken")){
+            setUserLoggedIn(true)
+        }
+    } ,[])
     const submitStudentHandler = (e) => {
         e.preventDefault()
         setIsStudentSubmitted(true)
@@ -21,8 +31,22 @@ function Login() {
     const submitAdminHandler = (e) =>{
         e.preventDefault()
         setIsAdminSubmitted(true)
-        if(adminUserName.length > 6 && adminUserPassword.length > 8){
+        if(adminUserName.length > 2 && adminUserPassword.length > 1){
             setAdminStatus("pending")
+            axios.post("https://school-node.iran.liara.run/login/admin" , {
+                userName : adminUserName ,
+                password : adminUserPassword
+            }).then(
+                (res) => {
+                    console.log(res);
+                    setAdminStatus(res.data.message)
+                    setAdminToken(res.data.token)
+                    if(res.data.message == "success"){
+                        Cookies.set('adminToken' , res.data.token , { expires: 14 })
+                    }
+                }
+            )
+            
         }
     }
     const setAdminActive = () => {
@@ -34,6 +58,14 @@ function Login() {
         setIsStudentActive(true)
     }
   return (
+    <>
+    {
+        userLoggedIn && (
+            <Navigate to="/admin" />
+        )
+    }
+    {
+        !userLoggedIn && (
     <div className="login-form-container">
         <div className="login-form">
             <div className="right-login-form">
@@ -61,16 +93,27 @@ function Login() {
                     {isAdminActive && (
                         <form onSubmit={submitAdminHandler}>
                        <input type="text" placeholder='نام کاربری' className='login-input' onChange={(e) =>setAdminUserName(e.target.value)}/>
-                        {(isAdminSubmitted && adminUserName.length < 6) && (
-                         <p className="err">نام کاربری باید بیشتر از ۶ کاراکتر باشد</p>
+                        {(isAdminSubmitted && adminUserName.length < 2) && (
+                         <p className="err">نام کاربری باید بیشتر از ۲ کاراکتر باشد</p>
                         )}
                         <input type="password" placeholder='رمز عبور' className='login-input' onChange={(e) =>setAdminUserPassword(e.target.value)}/>
-                        {(isAdminSubmitted && adminUserPassword.length < 8) && (
+                        {(isAdminSubmitted && adminUserPassword.length < 1) && (
                         <p className="err">رمز عبور باید بیشتر از ۸کاراکتر باشد</p>
                         )}
                          <button className='login-btn'>ورود</button>
                          {(isAdminSubmitted && adminStatus === "pending") && (
                         <p className="loading">درحال پردازش ...</p>
+                    )}
+                            {(isAdminSubmitted && adminStatus === "success") && (
+                                <>
+                                <p className="success">در حال انتقال به پنل ...</p>
+                                <Navigate to="/admin" />
+                                </>
+                    )}
+                                   {(isAdminSubmitted && adminStatus === "not-valid") && (
+                                <>
+                                <p className="err">کاربری پیدا نشد</p>
+                                </>
                     )}
                         </form>
                     )}
@@ -82,6 +125,9 @@ function Login() {
             </div>
         </div>
     </div>
+        )
+    }
+    </>
   )
 }
 

@@ -1,9 +1,8 @@
 .right-nav{
     width: 25%;
     height: 100vh;
-    background-color: #b5d1c0;
+    background-color: #e2ece6;
     box-shadow: rgba(60, 60, 103, 0.4) 0px 30px 60px -12px, rgba(10, 10, 10, 0.5) 0px 18px 36px -18px;
-    border-radius: 20px 0 0 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -22,15 +21,21 @@
     margin:15px auto;
     border-radius: 10px;
     cursor: pointer;
+    font-family: kalameh;
 }
 .list-menu-item-admin:hover{
-    background-color: #1c741c;
+    box-shadow: rgba(60, 103, 83, 0.5) 0px 30px 60px -12px, rgba(0, 63, 49, 0.5) 0px 18px 36px -18px;
+    width: 75%;
+    background-color: #ecf3ef;
+    border-radius: 18px;
 }
 .list-link{
     transition: all 0.3s ease-in-out;
+    display: block;
+    display: flex;
 }
-.list-menu-item:hover .list-link{
-    color: white;
+.list-menu-item-admin:hover .list-link{
+    color: #69726c;
 }
 .list-menu-item-admin a{
     color: black;

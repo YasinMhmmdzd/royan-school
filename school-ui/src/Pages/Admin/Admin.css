@@ -1,3 +1,6 @@
 .admin-container{
     display: flex;
 }
+.left-part{
+    width: 75%;
+}
