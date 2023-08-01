@@ -24,10 +24,12 @@ function Admin() {
         <Navigate to="/login" />
       )
     }
+    {verifyStatus === "verify-ok" && (
     <div className="admin-container">
         <RightNav />
         <Outlet />
     </div>
+    )}
     </>
   )
 }

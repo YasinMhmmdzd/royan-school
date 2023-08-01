@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Login.css"
 import axios from 'axios'
 import Cookies from 'js-cookie'
@@ -15,6 +15,12 @@ function Login() {
     const [adminUserPassword , setAdminUserPassword] = useState("")
     const [isAdminSubmitted , setIsAdminSubmitted] = useState(false)
     const [adminToken , setAdminToken] = useState('')
+    const [userLoggedIn , setUserLoggedIn] = useState(false)
+    useEffect(() => {
+        if(Cookies.get("adminToken")){
+            setUserLoggedIn(true)
+        }
+    } ,[])
     const submitStudentHandler = (e) => {
         e.preventDefault()
         setIsStudentSubmitted(true)
@@ -52,6 +58,14 @@ function Login() {
         setIsStudentActive(true)
     }
   return (
+    <>
+    {
+        userLoggedIn && (
+            <Navigate to="/admin" />
+        )
+    }
+    {
+        !userLoggedIn && (
     <div className="login-form-container">
         <div className="login-form">
             <div className="right-login-form">
@@ -111,6 +125,9 @@ function Login() {
             </div>
         </div>
     </div>
+        )
+    }
+    </>
   )
 }
 

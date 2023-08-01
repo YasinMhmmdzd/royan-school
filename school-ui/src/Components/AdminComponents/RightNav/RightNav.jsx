@@ -17,6 +17,7 @@ function RightNav() {
     {navigateOk && (
       <Navigate to="/login" />
     )}
+    {!navigateOk && (
     <div className="right-nav">
       <div className="top-right-nav">
         <img src="../images/logo-black.png" alt="لوگوی دبیرستان رویان" />
@@ -30,6 +31,7 @@ function RightNav() {
         <Link className='logout-link' onClick={logOutAdmin}><FiLogOut /> خروج</Link>
       </div>
     </div>
+    )}
     </>
   )
 }
