@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./RightNav.css"
-import { Link } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { Link, Navigate } from 'react-router-dom'
 import {FaUsers} from 'react-icons/fa'
 import {BsFillKeyFill} from 'react-icons/bs'
 import {AiFillSetting} from 'react-icons/ai'
 import {FiLogOut} from 'react-icons/fi'
 function RightNav() {
+  const [navigateOk , setNavigateOk] = useState(false)
+  const logOutAdmin = () =>{
+    Cookies.remove("adminToken")
+    setNavigateOk(true)
+  }
   return (
+    <>
+    {navigateOk && (
+      <Navigate to="/login" />
+    )}
     <div className="right-nav">
       <div className="top-right-nav">
         <img src="../images/logo-black.png" alt="لوگوی دبیرستان رویان" />
@@ -17,9 +27,10 @@ function RightNav() {
         </ul>
       </div>
       <div className="bottom-right-nav">
-        <Link className='logout-link'><FiLogOut /> خروج</Link>
+        <Link className='logout-link' onClick={logOutAdmin}><FiLogOut /> خروج</Link>
       </div>
     </div>
+    </>
   )
 }
 

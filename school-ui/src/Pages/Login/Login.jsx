@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./Login.css"
 import axios from 'axios'
+import Cookies from 'js-cookie'
+import { Navigate } from 'react-router-dom'
 function Login() {
     const [studentNationalCode , setStudentNationalCode] = useState("")
     const [studentPhoneNumber , setStudnetPhoneNumber] = useState("")
@@ -12,6 +14,7 @@ function Login() {
     const [adminUserName , setAdminUserName] = useState("")
     const [adminUserPassword , setAdminUserPassword] = useState("")
     const [isAdminSubmitted , setIsAdminSubmitted] = useState(false)
+    const [adminToken , setAdminToken] = useState('')
     const submitStudentHandler = (e) => {
         e.preventDefault()
         setIsStudentSubmitted(true)
@@ -30,6 +33,11 @@ function Login() {
             }).then(
                 (res) => {
                     console.log(res);
+                    setAdminStatus(res.data.message)
+                    setAdminToken(res.data.token)
+                    if(res.data.message == "success"){
+                        Cookies.set('adminToken' , res.data.token , { expires: 14 })
+                    }
                 }
             )
             
@@ -81,6 +89,17 @@ function Login() {
                          <button className='login-btn'>ورود</button>
                          {(isAdminSubmitted && adminStatus === "pending") && (
                         <p className="loading">درحال پردازش ...</p>
+                    )}
+                            {(isAdminSubmitted && adminStatus === "success") && (
+                                <>
+                                <p className="success">در حال انتقال به پنل ...</p>
+                                <Navigate to="/admin" />
+                                </>
+                    )}
+                                   {(isAdminSubmitted && adminStatus === "not-valid") && (
+                                <>
+                                <p className="err">کاربری پیدا نشد</p>
+                                </>
                     )}
                         </form>
                     )}

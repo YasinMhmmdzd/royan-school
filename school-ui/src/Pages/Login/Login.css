@@ -55,6 +55,12 @@ form{
     font-size: 1.3rem;
     animation: loading 1.5s infinite;
 }
+.success{
+    color: #098d09;
+    font-family: kalameh;
+    font-size: 1.3rem;
+    animation: loading 1.5s infinite;
+}
 .login-input{
     all: unset;
     padding: 10px;

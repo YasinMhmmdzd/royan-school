@@ -1,9 +1,8 @@
 .right-nav{
     width: 25%;
     height: 100vh;
-    background-color: #b5d1c0;
+    background-color: #e2ece6;
     box-shadow: rgba(60, 60, 103, 0.4) 0px 30px 60px -12px, rgba(10, 10, 10, 0.5) 0px 18px 36px -18px;
-    border-radius: 20px 0 0 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
