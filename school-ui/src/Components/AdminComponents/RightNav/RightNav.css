@@ -29,7 +29,7 @@
 .list-link{
     transition: all 0.3s ease-in-out;
 }
-.list-menu-item:hover .list-link{
+.list-menu-item-admin:hover .list-link{
     color: white;
 }
 .list-menu-item-admin a{

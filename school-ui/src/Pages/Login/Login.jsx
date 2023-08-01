@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./Login.css"
+import axios from 'axios'
 function Login() {
     const [studentNationalCode , setStudentNationalCode] = useState("")
     const [studentPhoneNumber , setStudnetPhoneNumber] = useState("")
@@ -21,8 +22,17 @@ function Login() {
     const submitAdminHandler = (e) =>{
         e.preventDefault()
         setIsAdminSubmitted(true)
-        if(adminUserName.length > 6 && adminUserPassword.length > 8){
+        if(adminUserName.length > 2 && adminUserPassword.length > 1){
             setAdminStatus("pending")
+            axios.post("https://school-node.iran.liara.run/login/admin" , {
+                userName : adminUserName ,
+                password : adminUserPassword
+            }).then(
+                (res) => {
+                    console.log(res);
+                }
+            )
+            
         }
     }
     const setAdminActive = () => {
@@ -61,11 +71,11 @@ function Login() {
                     {isAdminActive && (
                         <form onSubmit={submitAdminHandler}>
                        <input type="text" placeholder='نام کاربری' className='login-input' onChange={(e) =>setAdminUserName(e.target.value)}/>
-                        {(isAdminSubmitted && adminUserName.length < 6) && (
-                         <p className="err">نام کاربری باید بیشتر از ۶ کاراکتر باشد</p>
+                        {(isAdminSubmitted && adminUserName.length < 2) && (
+                         <p className="err">نام کاربری باید بیشتر از ۲ کاراکتر باشد</p>
                         )}
                         <input type="password" placeholder='رمز عبور' className='login-input' onChange={(e) =>setAdminUserPassword(e.target.value)}/>
-                        {(isAdminSubmitted && adminUserPassword.length < 8) && (
+                        {(isAdminSubmitted && adminUserPassword.length < 1) && (
                         <p className="err">رمز عبور باید بیشتر از ۸کاراکتر باشد</p>
                         )}
                          <button className='login-btn'>ورود</button>
