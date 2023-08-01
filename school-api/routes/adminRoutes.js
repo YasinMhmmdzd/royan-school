@@ -11,8 +11,8 @@ router.get("/", auth, (req, res) => {
 });
 
 router.post("/signup", auth, async (req, res) => {
-    if (req.user.role == "admin") res.json({ message: "admin-not-valid" });
     try {
+        if (req.user.role == "admin") return res.json({ message: "admin-not-valid" });
         const { password, userName, fullName } = req.body;
         if (!password || !userName || !fullName) {
             return res.json({ message: "input-not-valid" });
@@ -29,4 +29,18 @@ router.post("/signup", auth, async (req, res) => {
     }
 });
 
+// @desc delete admin
+// @route /admin/delete
+// @access private
+
+router.delete("/delete/:userName?", auth, async (req, res) => {
+    try {
+        console.log("delete");
+        if (req.user.role == "admin") return res.json({ message: "admin-not-valid" });
+        await Admin.findOneAndDelete({ userName: req.params.userName });
+        res.json({ message: "delete-ok" });
+    } catch (error) {
+        console.log(error);
+    }
+});
 export default router;
