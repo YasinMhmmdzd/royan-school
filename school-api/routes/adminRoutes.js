@@ -6,9 +6,17 @@ import { Admin } from "../model/adminModel.js";
 
 const router = Router();
 
+// @desc signup admin for SuperAdmin
+// @route /admin/signup
+// @access private
+
 router.get("/", auth, (req, res) => {
     res.json({ message: "verify-ok", user: req.user });
 });
+
+// @desc get list admins
+// @route /admin/getAll
+// @access private
 
 router.post("/signup", auth, async (req, res) => {
     try {
