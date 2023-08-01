@@ -11,7 +11,8 @@ let pageRoutes = [
     <Admin />
         </>
     ) , children : [
-        {path:"students" , element:<Students />}
+        {path:"students" , element:<Students />},
+        {path:"admins" , element:<Admins />}
     ]}
 ]
 export default pageRoutes
