@@ -26,6 +26,7 @@ router.post("/login/admin", async (req, res) => {
 
                 res.json({
                     token,
+                    message: "success",
                 });
             }
         );

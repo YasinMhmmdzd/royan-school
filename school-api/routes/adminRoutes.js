@@ -7,10 +7,11 @@ import { Admin } from "../model/adminModel.js";
 const router = Router();
 
 router.get("/", auth, (req, res) => {
-    res.json({ message: "verify-ok" });
+    res.json({ message: "verify-ok", user: req.user });
 });
 
-router.post("/signup", async (req, res) => {
+router.post("/signup", auth, async (req, res) => {
+    if (req.user.role == "admin") res.json({ message: "admin-not-valid" });
     try {
         const { password, userName, fullName } = req.body;
         if (!password || !userName || !fullName) {

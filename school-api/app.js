@@ -11,8 +11,8 @@ const app = express();
 //* config
 if (process.env.NODE_ENV == "development") {
     dotenv.config({ path: "./config/config.env" });
-    app.use(morgan("dev"));
 }
+app.use(morgan("dev"));
 connectDB();
 
 //?custom middleware
