@@ -20,7 +20,6 @@ function AddNewAdmin() {
       }
     })
     .then((res) =>{
-      console.log(res);
       setFetchStatus(res.data.message)
     })
   }

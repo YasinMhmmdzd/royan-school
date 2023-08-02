@@ -5,6 +5,13 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 function AdminLists() {
   const [allAdmins , setAllAdmins] = useState([])
+  const deleteUser = (userName) => {
+    axios.delete(`https://school-node.iran.liara.run/admin/delete/${userName}` , {
+      headers : {
+        token : Cookies.get("adminToken")
+      }
+    }).then(res => console.log(res))
+  }
   useEffect(()=> {
     axios.get("https://school-node.iran.liara.run/admin/getAll" , {
       headers :{
@@ -31,14 +38,13 @@ function AdminLists() {
         <tbody>
           {
             allAdmins.map(admin => (
-              <tr key={admin.id}>
+              <tr key={admin._id}>
 
                 <td>{admin.fullName}</td>
                 <td>{admin.userName} @</td>
                 <td>{admin.role === "admin" ? 'ادمین' : 'سوپر ادمین'}</td>
                 <td>
-              <AiFillDelete title='حذف ادمین' className='opreation-icon error-icon'/>
-              <AiFillEdit title='ویرایش ادمین' className='opreation-icon edit-icon'/>
+              <AiFillDelete title='حذف ادمین' className='opreation-icon error-icon' onClick={() => deleteUser(admin.userName)}/>
             </td>
               </tr>
             ))
