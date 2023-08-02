@@ -5,8 +5,11 @@ import RightNav from '../../Components/AdminComponents/RightNav/RightNav'
 import { Navigate, Outlet } from 'react-router-dom'
 import Cookies from 'js-cookie'
 function Admin() {
+
   const [verifyStatus , setVerifyStatus] = useState('')
-  useEffect( ()=>{
+  const [adminInfos , setAdminInfos] = useState({})
+
+  useEffect(()=>{
     axios.get("https://school-node.iran.liara.run/admin" , {
       headers:{
         token : Cookies.get("adminToken")
@@ -14,19 +17,23 @@ function Admin() {
     }).then(
       (res)=>{
         setVerifyStatus(res.data.message)
+        setAdminInfos(res.data.admin)
       }
     )
   },[] )
+
   return (
     <>
+
     {
       verifyStatus === "token-error" && (
         <Navigate to="/login" />
       )
     }
+
     {verifyStatus === "verify-ok" && (
     <div className="admin-container">
-        <RightNav />
+        <RightNav adminName={adminInfos.fullName}/>
         <Outlet />
     </div>
     )}

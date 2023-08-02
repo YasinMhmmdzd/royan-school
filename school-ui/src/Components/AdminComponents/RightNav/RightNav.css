@@ -12,6 +12,11 @@
     width: 200px;
     height: 125px;
 }
+.right-nav h5{
+    font-size: 1rem;
+    color: #69726c;
+    font-family: kalameh;
+}
 .list-menu-item-admin{
     text-align: right;
     display: block;

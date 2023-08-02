@@ -22,7 +22,7 @@ function Admins() {
           </Link>
         </div>
         <div className="admin-service">
-          <Link to="/">
+          <Link to="/admin/admins/list">
           <div className="top-service">
           <h3>
             مشاهده لیست مدیران

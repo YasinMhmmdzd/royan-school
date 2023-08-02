@@ -6,7 +6,7 @@ import {FaUsers , FaHome} from 'react-icons/fa'
 import {BsFillKeyFill} from 'react-icons/bs'
 import {FiLogOut} from 'react-icons/fi'
 import {BiSolidVideos} from 'react-icons/bi'
-function RightNav() {
+function RightNav({adminName}) {
   const [navigateOk , setNavigateOk] = useState(false)
   const logOutAdmin = () =>{
     Cookies.remove("adminToken")
@@ -21,6 +21,7 @@ function RightNav() {
     <div className="right-nav">
       <div className="top-right-nav">
         <img src="../images/logo-black.png" alt="لوگوی دبیرستان رویان" />
+        <h5>سلام {adminName}</h5>
         <ul className="list-menu-admin">
         <li className="list-menu-item-admin"><Link to="/" className='list-link'><FaHome className='list-icon'/> صفحه اصلی</Link></li>
           <li className="list-menu-item-admin"><Link to="/admin/students" className='list-link'><FaUsers className='list-icon'/> دانش آموزان</Link></li>
