@@ -54,8 +54,8 @@ router.post("/signup", auth, async (req, res) => {
 // @access private
 router.post("/user/signup", auth, async (req, res) => {
     try {
-        const { fullName, uniqueCode, motherNumber, fatherNumber, phoneNumber } = req.body;
-        if (!fullName || !uniqueCode || !motherNumber || !fatherNumber || !phoneNumber) {
+        const { fullName, uniqueCode, motherNumber, fatherNumber, phoneNumber, Grade, studyFeild } = req.body;
+        if (!fullName || !uniqueCode || !motherNumber || !fatherNumber || !phoneNumber || !Grade || !studyFeild) {
             return res.json({ message: "input-not-valid" });
         }
         const unique = await User.findOne({ uniqueCode });
@@ -68,6 +68,8 @@ router.post("/user/signup", auth, async (req, res) => {
             motherNumber,
             fatherNumber,
             phoneNumber,
+            Grade,
+            studyFeild,
         });
         res.json({ message: "user-created" });
     } catch (error) {
