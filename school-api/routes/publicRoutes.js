@@ -51,6 +51,7 @@ router.post("/login/user", async (req, res) => {
             fatherNumber: isMatch.fatherNumber,
             Grade: isMatch.Grade,
             studyFeild: isMatch.studyFeild,
+            role: "user",
         };
         jwt.sign(userPayload, process.env.JWT_SECRET, { expiresIn: "6d" }, (err, token) => {
             if (err) return console.log(err);
