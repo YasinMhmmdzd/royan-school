@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import "./AddNewAdmin.css"
-import { useContext } from 'react'
-import adminContext from '../../../../Contexts/AdminContexts'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 function AddNewAdmin() {
-  const adminInfos = useContext(adminContext)
   const [newAdminFullName ,setNewAdminFullName] = useState('')
   const [newAdminName , setNewAdminName] = useState('')
   const [newAdminPassword , setNewAdminPassword] = useState('')
@@ -14,6 +12,10 @@ function AddNewAdmin() {
       fullName : newAdminFullName ,
       userName : newAdminName ,
       password : newAdminPassword
+    } ,{
+      headers:{
+        token : Cookies.get("adminToken")
+      }
     })
     .then(res => console.log(res))
   }
