@@ -6,6 +6,11 @@ const userSchema = new Schema({
         required: true,
         trim: true,
     },
+    phoneNumber: {
+        type: Number,
+        required: true,
+        trim: true,
+    },
     uniqueCode: {
         type: Number,
         unique: true,

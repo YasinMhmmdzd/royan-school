@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 
 import { auth } from "../middlewares/auth.js";
 import { Admin } from "../model/adminModel.js";
+import { User } from "../model/userModel.js";
 
 const router = Router();
 
@@ -43,6 +44,32 @@ router.post("/signup", auth, async (req, res) => {
         const hash = await bcrypt.hash(password, 10);
         await Admin.create({ password: hash, userName, fullName });
         res.json({ message: "admin-created" });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// @desc  signup user for SuperAdmin
+// @route POST /admin/user/signup
+// @access private
+router.post("/user/signup", auth, async (req, res) => {
+    try {
+        const { fullName, uniqueCode, motherNumber, fatherNumber, phoneNumber } = req.body;
+        if (!fullName || !uniqueCode || !motherNumber || !fatherNumber || !phoneNumber) {
+            return res.json({ message: "input-not-valid" });
+        }
+        const unique = await User.findOne({ uniqueCode });
+        if (unique) {
+            res.json({ message: "user-used" });
+        }
+        await User.create({
+            fullName,
+            uniqueCode,
+            motherNumber,
+            fatherNumber,
+            phoneNumber,
+        });
+        res.json({ message: "user-created" });
     } catch (error) {
         console.log(error);
     }
