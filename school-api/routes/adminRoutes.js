@@ -83,8 +83,7 @@ router.post("/user/signup", auth, async (req, res) => {
 
 router.delete("/delete/:userName?", auth, async (req, res) => {
     try {
-        console.log("delete");
-        if (req.user.role == "admin") return res.json({ message: "admin-not-valid" });
+        if (req.user.role == "admin") return res.json({ message: "admin-not-access" });
         await Admin.findOneAndDelete({ userName: req.params.userName });
         res.json({ message: "delete-ok" });
     } catch (error) {

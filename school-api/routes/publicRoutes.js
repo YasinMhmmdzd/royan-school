@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 import { Admin } from "../model/adminModel.js";
+import { User } from "../model/userModel.js";
 
 const router = Router();
 
@@ -38,10 +39,9 @@ router.post("/login/admin", async (req, res) => {
 router.post("/login/user", async (req, res) => {
     try {
         const { uniqueCode, phoneNumber } = req.body;
-        const isMatch = await findOne({ uniqueCode });
-
-        if (!isMatch || phoneNumber == isMatch.phoneNumber) {
-            return res.json({ message: "not-valid " });
+        const isMatch = await User.findOne({ uniqueCode });
+        if (!isMatch || phoneNumber != isMatch.phoneNumber) {
+            return res.json({ message: "not-valid1" });
         }
         const userPayload = {
             id: isMatch._id,
