@@ -20,7 +20,6 @@ function AdminLists() {
       }
     })
     .then((res) => {
-      console.log(res);
       setAllAdmins(res.data)
     })
   } , [fetchDeleteStatus])
