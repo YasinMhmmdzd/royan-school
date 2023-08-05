@@ -10,8 +10,9 @@ function Admin() {
   const [verifyStatus , setVerifyStatus] = useState('')
   const [adminInfos , setAdminInfos] = useState({})
 
-  useEffect(()=>{
-    axios.get("https://school-node.iran.liara.run/admin" , {
+
+  async function fetchData(){
+    await axios.get("https://school-node.iran.liara.run/admin" , {
       headers:{
         token : Cookies.get("adminToken")
       }
@@ -21,6 +22,11 @@ function Admin() {
         setAdminInfos(res.data.admin)
       }
     )
+  }
+
+
+  useEffect(()=>{
+    fetchData()
   },[] )
 
   return (

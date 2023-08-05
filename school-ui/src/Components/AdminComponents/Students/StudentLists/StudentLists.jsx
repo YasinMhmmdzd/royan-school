@@ -9,7 +9,7 @@ function StudentLists() {
 
 
   useEffect(() => {
-    axios.get("https://school-node.iran.liara.run/user" , {
+    axios.get("https://school-node.iran.liara.run/admin/user/getAll" , {
       headers : {
         token : Cookies.get("adminToken")
       }
@@ -21,27 +21,7 @@ function StudentLists() {
 
   return (
     <div className="student-lists-container">
-      <h2>لیست دانش آموزان</h2>
-      <table>
-        <thead>
-          <tr>
-          <th>نام و نام خانوادگی</th>
-          <th>شماره تلفن</th>
-          <th>کد ملی</th>
-          <th>شماره همراه پدر</th>
-          <th>شماره همراه مادر</th>
-          <th>پایه تحصیلی</th>
-          <th>رشته</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* {allStudents.map(student => (
-          <tr>
-          <td>{student.fullName}</td>
-          </tr>
-          ))} */}
-        </tbody>
-      </table>
+      
     </div>
   )
 }

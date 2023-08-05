@@ -52,6 +52,7 @@ function AddNewStudent() {
       <input type="text" className='student-signup-input' onChange={(e) => setStudentFatherNumber(e.target.value)} placeholder='شماره همراه پدر'/>
       پایه تحصیلی :
       <select className='student-signup-select' onChange={(e) => setStudentGrade(e.target.value)}>
+        <option value="">−−−−</option>
         <option value="1">دهم</option>
         <option value="2">یازدهم</option>
         <option value="3">دوازدهم</option>
