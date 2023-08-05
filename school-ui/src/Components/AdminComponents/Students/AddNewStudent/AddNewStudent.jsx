@@ -13,16 +13,12 @@ function AddNewStudent() {
   const [studentGrade , setStudentGrade] = useState('')
   const [studentField , setStudentField] = useState("")
   const [submitted , setSubmitted] = useState(false)
+  const [fetchStatus , setFetchStatus] = useState('')
 
   const newStudentHandler = (e) => {
     e.preventDefault()
-    console.log("fullName : " , studentFullName);
-    console.log("phoneNumber : " , studentPhoneNumber);
-    console.log("uniqueCode : " , studentNationalCode);
-    console.log("motherNumber : " , studentMohterPhoneNumber);
-    console.log("fatherNumber : " , studentFatherNumber);
-    console.log("Grade : " , studentGrade);
-    console.log("studyField : " , studentField);
+    setSubmitted(true)
+    setFetchStatus('pending')
     axios.post("https://school-node.iran.liara.run/admin/user/signup" , {
       fullName : studentFullName ,
       phoneNumber : studentPhoneNumber , 
@@ -35,7 +31,12 @@ function AddNewStudent() {
       headers : {
         token : Cookies.get("adminToken")
       }
-    }).then(res => console.log(res))
+    }).then(
+      (res) => {
+        console.log(res);
+        setFetchStatus(res.data.message)
+      }
+    )
   }
 
 
