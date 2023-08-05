@@ -78,6 +78,19 @@ router.post("/user/signup", auth, async (req, res) => {
     }
 });
 
+// @desc get list of users
+// @route GET /admin/user/getAll
+// @access private
+
+router.get("/user/getAll", async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 // @desc delete admin
 // @route DELETE /admin/delete
 // @access private
