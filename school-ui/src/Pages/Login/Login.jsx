@@ -3,7 +3,11 @@ import "./Login.css"
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import { Navigate } from 'react-router-dom'
+
+
 function Login() {
+
+
     const [studentNationalCode , setStudentNationalCode] = useState("")
     const [studentPhoneNumber , setStudnetPhoneNumber] = useState("")
     const [studentStatus , setStudentStatus] = useState("")
@@ -16,11 +20,15 @@ function Login() {
     const [isAdminSubmitted , setIsAdminSubmitted] = useState(false)
     const [adminToken , setAdminToken] = useState('')
     const [userLoggedIn , setUserLoggedIn] = useState(false)
+
+
     useEffect(() => {
         if(Cookies.get("adminToken")){
             setUserLoggedIn(true)
         }
     } ,[])
+
+
     const submitStudentHandler = (e) => {
         e.preventDefault()
         setIsStudentSubmitted(true)
@@ -28,6 +36,8 @@ function Login() {
             setStudentStatus("pending")
         }
     }
+
+
     const submitAdminHandler = (e) =>{
         e.preventDefault()
         setIsAdminSubmitted(true)
@@ -38,7 +48,6 @@ function Login() {
                 password : adminUserPassword
             }).then(
                 (res) => {
-                    console.log(res);
                     setAdminStatus(res.data.message)
                     setAdminToken(res.data.token)
                     if(res.data.message == "success"){
@@ -49,21 +58,31 @@ function Login() {
             
         }
     }
+
+
     const setAdminActive = () => {
         setIsAdminActive(true)
         setIsStudentActive(false)
     }
+
+
     const setStudnetActive =() =>{
         setIsAdminActive(false)
         setIsStudentActive(true)
     }
+
+
   return (
     <>
+
+
     {
         userLoggedIn && (
             <Navigate to="/admin" />
         )
     }
+
+
     {
         !userLoggedIn && (
     <div className="login-form-container">
