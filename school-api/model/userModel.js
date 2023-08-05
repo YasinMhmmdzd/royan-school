@@ -32,7 +32,7 @@ const userSchema = new Schema({
         required: true,
         trim: true,
     },
-    studyFeild: {
+    studyField: {
         type: String,
         required: true,
         trim: true,
