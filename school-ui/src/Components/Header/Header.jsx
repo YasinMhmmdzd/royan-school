@@ -6,6 +6,7 @@ import {BiSolidVideos , BiLogIn} from 'react-icons/bi'
 import {BsChevronDoubleDown} from 'react-icons/bs'
 import {FaBars} from 'react-icons/fa'
 import {AiOutlineClose} from  'react-icons/ai'
+import Cookies from 'js-cookie';
 function Header() {
   const [isOpenHeader , setIsOpenHeader] = useState(false)
   const goToDown = () =>{
@@ -36,7 +37,7 @@ function Header() {
                <li className="list-menu-item"><Link to="/">صفحه اصلی</Link></li>
                <li className="list-menu-item"><a href='https://royan-reserve.ir'>پیش ثبت نام</a></li>
                <li className="list-menu-item list-btn"><Link to="/login"><BiSolidVideos className='list-icon'/> ویدیوهای آموزشی</Link></li>
-               <li className="list-menu-item list-btn"><Link to="/login"><BiLogIn className='list-icon'/> ورود مدیر</Link></li>
+               <li className="list-menu-item list-btn"><Link to={Cookies.get("adminToken") ? '/admin' : '/admin'}><BiLogIn className='list-icon'/> ورود مدیر</Link></li>
             </ul>
             <img src="./images/logo.png" alt="school logo"  className='logo'/>
         </div>
