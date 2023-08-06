@@ -18,7 +18,6 @@ function Login() {
     const [adminUserName , setAdminUserName] = useState("")
     const [adminUserPassword , setAdminUserPassword] = useState("")
     const [isAdminSubmitted , setIsAdminSubmitted] = useState(false)
-    const [adminToken , setAdminToken] = useState('')
     const [userLoggedIn , setUserLoggedIn] = useState(false)
     const [studentLoggedIn , setStudentLoggedIn] = useState(false)
 
@@ -43,6 +42,7 @@ function Login() {
                 phoneNumber : studentPhoneNumber
             }).then(
                 (res) => {
+                    setStudentStatus(res.data.message)
                     Cookies.set("studentToken" , res.data.token , {expires: 14})
                 }
             )
@@ -61,7 +61,6 @@ function Login() {
             }).then(
                 (res) => {
                     setAdminStatus(res.data.message)
-                    setAdminToken(res.data.token)
                     if(res.data.message == "success"){
                         Cookies.set('adminToken' , res.data.token , { expires: 14 })
                     }
@@ -127,6 +126,14 @@ function Login() {
                     {(isStudentSubmitted && studentStatus === "pending") && (
                         <p className="loading">درحال پردازش ...</p>
                     )}
+                    {
+                        (isStudentSubmitted && studentStatus === "success") && (
+                            <>
+                            <p className="success">در حال انتقال به صفحه ویدیو ها</p>
+                            <Navigate to="/student-courses" />
+                            </>
+                        )
+                    }
                 </form>
                     )}
                     {isAdminActive && (
