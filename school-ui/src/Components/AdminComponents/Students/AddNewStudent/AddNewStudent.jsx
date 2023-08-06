@@ -12,12 +12,10 @@ function AddNewStudent() {
   const [studentFatherNumber , setStudentFatherNumber] = useState('')
   const [studentGrade , setStudentGrade] = useState('')
   const [studentField , setStudentField] = useState("")
-  const [submitted , setSubmitted] = useState(false)
   const [fetchStatus , setFetchStatus] = useState('')
 
   const newStudentHandler = (e) => {
     e.preventDefault()
-    setSubmitted(true)
     setFetchStatus('pending')
     axios.post("https://school-node.iran.liara.run/admin/user/signup" , {
       fullName : studentFullName ,
@@ -65,6 +63,17 @@ function AddNewStudent() {
         <option value="2">ریاضی</option>
       </select>
       <button className='signup-btn'>اضافه کردن کاربر</button>
+      {fetchStatus === "pending" && (
+        <p className="loading"> درحال پردازش...</p>
+      )}
+      {fetchStatus === "user-created" && (
+        <p className="success">دانش آموز اضافه شد</p>
+      )}
+      {
+        fetchStatus === "user-used" && (
+          <p className="err">این کد ملی قبلا در سیستم ثبت شده</p>
+        )
+      }
       </form>
     </div>
 
