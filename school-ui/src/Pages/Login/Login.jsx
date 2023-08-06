@@ -20,7 +20,7 @@ function Login() {
     const [isAdminSubmitted , setIsAdminSubmitted] = useState(false)
     const [adminToken , setAdminToken] = useState('')
     const [userLoggedIn , setUserLoggedIn] = useState(false)
-    const [studentLoggedIn , setStudentLoggedIn] = useState(flase)
+    const [studentLoggedIn , setStudentLoggedIn] = useState(false)
 
 
     useEffect(() => {
