@@ -10,6 +10,7 @@ import StudentLists from "./Components/AdminComponents/Students/StudentLists/Stu
 let pageRoutes = [
     {path:"/" , element:<Home />},
     {path:"/login" , element:<Login />},
+    {path:"/student-courses" , element:<StudentCourses />},
     {path:"/admin/*" , element:(
         <>
     <Admin />
