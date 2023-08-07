@@ -6,10 +6,11 @@ import Admins from "./Components/AdminComponents/Admins/Admins";
 import AdminLists from "./Components/AdminComponents/Admins/AdminLists/AdminLists";
 import AddNewAdmin from "./Components/AdminComponents/Admins/AddNewAdmin/AddNewAdmin";
 import AddNewStudent from "./Components/AdminComponents/Students/AddNewStudent/AddNewStudent";
-import StudentLists from "./Components/AdminComponents/Students/StudentLists/StudentLists";
+import StudentCourses from "./Pages/Students/StudentCourses/StudentCourses";
 let pageRoutes = [
     {path:"/" , element:<Home />},
     {path:"/login" , element:<Login />},
+    {path:"/student-courses" , element:<StudentCourses />},
     {path:"/admin/*" , element:(
         <>
     <Admin />
@@ -17,7 +18,7 @@ let pageRoutes = [
     ) , children : [
         {path:"students" , element:<Students /> , children:[
             {path:"add" , element:<AddNewStudent />} , 
-            {path:"list" , element:<StudentLists />}
+            {path:"list" , element:<StudentCourses />}
         ]},
         {path:"admins" , element:<Admins /> , children:[
             {path:"add" , element:<AddNewAdmin />},

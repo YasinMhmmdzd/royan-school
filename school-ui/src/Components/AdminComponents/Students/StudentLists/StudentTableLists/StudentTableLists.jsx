@@ -1,27 +1,16 @@
 import React from 'react'
-
-function StudentTableLists() {
+import "./StudentTableLists.css"
+function StudentTableLists({fullName , phoneNumber , uniqueCode ,  motherNumber , fatherNumber , Grade , studyField}) {
   return (
-    <div className='student-table-lists'>
-        <table>
-            <thead>
                 <tr>
-                    <th>نام و نام خانوادگی</th>
-                    <th>شماره تلفن</th>
-                    <th>کد ملی</th>
-                    <th>نام مادر</th>
-                    <th>نام پدر</th>
-                    <th>پایه تحصیلی</th>
-                    <th>رشته</th>
+                    <td>{fullName}</td>
+                    <td>{phoneNumber}</td>
+                    <td>{uniqueCode}</td>
+                    <td>{motherNumber}</td>
+                    <td>{fatherNumber}</td>
+                    <td>{Grade}</td>
+                    <td>{studyField === '1' ? 'تجربی' : 'ریاضی'}</td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
   )
 }
 

@@ -1,0 +1,38 @@
+.student-lists-container{
+    width: 75%;
+}
+.filter-container{
+    margin: 25px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.filter-container button{
+    all: unset;
+    margin: 20px;
+    background-color: #e2ece6;
+    color:#555;
+    font-family: kalameh;
+    width: 25%;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+table{
+    margin: 25px auto;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+    width: 85%;
+    border-collapse: collapse;
+}
+thead{
+    background-color: #e2ece6;
+    color:#555;
+    font-family: kalameh;
+    width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+}
+th{
+    padding: 8px;
+    margin: 0;
+}

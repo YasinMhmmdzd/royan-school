@@ -11,7 +11,7 @@ function AddNewAdmin() {
   const newAdminHandler = (e)=>{
     e.preventDefault()
     setIsSubmitted(true)
-    if(newAdminFullName.length > 3 && newAdminName.length > 2 && newAdminPassword.length > 8){
+    if(newAdminFullName.length > 3 && newAdminName.length > 2 && newAdminPassword.length >= 7){
 
       setFetchStatus("pending")
       axios.post("https://school-node.iran.liara.run/admin/signup" , {
@@ -42,7 +42,7 @@ function AddNewAdmin() {
           <p className="err">نام کاربری باید بیشتر از ۲ کاراکتر باشد</p>
         )}
         <input type="password" className='admin-signup-input' onChange={(e) => setNewAdminPassword(e.target.value)} placeholder='رمز عبور‌(بیش از ۸ کاراکتر)'/>
-        {(isSubmitted && newAdminPassword.length < 8) && (
+        {(isSubmitted && newAdminPassword.length <= 7) && (
           <p className="err">رمز عبور باید بیش از ۸ کاراکتر باشد</p>
         )}
         <button className='signup-btn'>اضافه کردن کاربر</button>
