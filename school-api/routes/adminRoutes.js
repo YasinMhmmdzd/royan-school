@@ -91,6 +91,22 @@ router.get("/user/getAll", async (req, res) => {
     }
 });
 
+// @desc get info for users&admin
+// @route GET /admin/getInfo
+// @access private
+router.get("/getinfo", auth, async (req, res) => {
+    try {
+        const countOfUser = await User.count();
+        const countOfAdmin = await Admin.count();
+        res.json({
+            userCount: countOfUser,
+            adminCount: countOfAdmin,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 // @desc delete admin
 // @route DELETE /admin/delete
 // @access private
