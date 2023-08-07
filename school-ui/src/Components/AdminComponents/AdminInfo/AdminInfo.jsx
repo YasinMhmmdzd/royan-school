@@ -16,11 +16,11 @@ function AdminInfo() {
   } , [] )
   return (
     <div className='left-part admin-info-container'>
-        <div className="admin-info">
+        <div className="admin-info-item">
             <h3>تعداد دانش آموزان</h3>
             <p>{adminInfos.userCount}</p>
         </div>
-        <div className="admin-info">
+        <div className="admin-info-item">
             <h3>تعداد مدیران</h3>
             <p>{adminInfos.adminCount}</p>
         </div>
