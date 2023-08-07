@@ -89,7 +89,7 @@ function Login() {
 
     {
         userLoggedIn && (
-            <Navigate to="/admin" />
+            <Navigate to="/admin/home" />
         )
         
     }
@@ -153,7 +153,7 @@ function Login() {
                             {(isAdminSubmitted && adminStatus === "success") && (
                                 <>
                                 <p className="success">در حال انتقال به پنل ...</p>
-                                <Navigate to="/admin" />
+                                <Navigate to="/admin/home" />
                                 </>
                     )}
                                    {(isAdminSubmitted && adminStatus === "not-valid") && (
