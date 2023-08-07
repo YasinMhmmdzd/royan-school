@@ -54,8 +54,9 @@ router.post("/signup", auth, async (req, res) => {
 // @access private
 router.post("/user/signup", auth, async (req, res) => {
     try {
-        const { fullName, uniqueCode, motherNumber, fatherNumber, phoneNumber, Grade, studyFeild } = req.body;
-        if (!fullName || !uniqueCode || !motherNumber || !fatherNumber || !phoneNumber || !Grade || !studyFeild) {
+        const { fullName, uniqueCode, motherNumber, fatherNumber, phoneNumber, Grade, studyField } = req.body;
+
+        if (!fullName || !uniqueCode || !motherNumber || !fatherNumber || !phoneNumber || !Grade || !studyField) {
             return res.json({ message: "input-not-valid" });
         }
         const unique = await User.findOne({ uniqueCode });
@@ -69,9 +70,38 @@ router.post("/user/signup", auth, async (req, res) => {
             fatherNumber,
             phoneNumber,
             Grade,
-            studyFeild,
+            studyField,
         });
         res.json({ message: "user-created" });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// @desc get list of users
+// @route GET /admin/user/getAll
+// @access private
+
+router.get("/user/getAll", async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// @desc get info for users&admin
+// @route GET /admin/getInfo
+// @access private
+router.get("/getinfo", auth, async (req, res) => {
+    try {
+        const countOfUser = await User.count();
+        const countOfAdmin = await Admin.count();
+        res.json({
+            userCount: countOfUser,
+            adminCount: countOfAdmin,
+        });
     } catch (error) {
         console.log(error);
     }
