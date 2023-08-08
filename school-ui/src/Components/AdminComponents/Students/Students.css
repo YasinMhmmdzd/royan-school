@@ -35,3 +35,11 @@
     font-size: 30px;
     color: #78887e;
 }
+@media only screen and (max-width:800px){
+    .student-service-container{
+        flex-direction: column;
+    }
+    .student-service{
+        width: 90%;
+    }
+}

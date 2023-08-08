@@ -68,3 +68,8 @@
 .logout-link{
     color: white;
 }
+@media only screen and (max-width:1000px){
+    .right-nav{
+        display: none;
+    }
+}

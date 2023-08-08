@@ -5,3 +5,8 @@
 .left-part{
     width: 75%;
 }
+@media only screen and (max-width:1000px){
+    .left-part{
+        width: 100%;
+    }
+}
