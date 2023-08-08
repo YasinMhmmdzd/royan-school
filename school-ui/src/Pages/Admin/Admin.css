@@ -5,8 +5,49 @@
 .left-part{
     width: 75%;
 }
+.responsive-burger-icon{
+    display: none;
+}
+.right-responsive-menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ecf3ef;
+    height: 100vh;
+    width: 50%;
+    box-shadow: 0 0 5px #ccc;
+}
+.responsive-list-item{
+    margin: 10px;
+}
+.responsive-list-item a{
+    color: black;
+}
+.close-icon{
+    font-size: 30px;
+}
+.logout-item{
+    background-color: #cc4141;
+    border-radius: 10px;
+}
+.logout-item a{
+    color: white;
+}
 @media only screen and (max-width:1000px){
     .left-part{
         width: 100%;
+    }
+    .responsive-burger-icon{
+        display: block;
+        font-size: 30px;
+        position: absolute;
+        top: 10px;
+        right: 8px;
+        color: #656e69;
+    }
+}
+@media only screen and (max-width:500px){
+    .right-responsive-menu{
+        width: 75%;
     }
 }

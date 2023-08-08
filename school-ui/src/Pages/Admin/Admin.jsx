@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react'
 import "./Admin.css"
 import axios from 'axios'
 import RightNav from '../../Components/AdminComponents/RightNav/RightNav'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Link, Navigate, Outlet } from 'react-router-dom'
 import Cookies from 'js-cookie'
+import {AiOutlineClose} from 'react-icons/ai'
+import { FaBars , FaHome , FaUsers } from 'react-icons/fa'
+import { BsFillKeyFill } from 'react-icons/bs'
+import { BiSolidVideos } from 'react-icons/bi'
 function Admin() {
 
+  const [isOpenMenu , setIsOpenMenu] = useState(false)
   const [verifyStatus , setVerifyStatus] = useState('')
   const [adminInfos , setAdminInfos] = useState({})
 
@@ -41,6 +46,19 @@ function Admin() {
 
     <div className="admin-container">
         <RightNav adminName={adminInfos.fullName}/>
+        <FaBars  className='responsive-burger-icon' onClick={() => setIsOpenMenu(true)}/>
+        {isOpenMenu && (
+        <div className="right-responsive-menu">
+          <ul className="responsive-list">
+            <AiOutlineClose className='close-icon' onClick={()=> setIsOpenMenu(false)}/>
+            <li className="responsive-list-item"><Link to="/"><FaHome className='list-icon'/> صفحه اصلی</Link></li>
+            <li className='responsive-list-item'><Link to="/admin/students"><FaUsers className='list-icon'/> دانش آموزان</Link></li>
+            <li className='responsive-list-item'><Link to="/admin/admins"><BsFillKeyFill className='list-icon'/>مدیران</Link></li>
+            <li className='responsive-list-item'><Link to="/admin/courses"><BiSolidVideos className='list-icon'/> دوره های آموزشی</Link></li>
+            <li className='responsive-list-item logout-item'><Link to="">خروج</Link></li>
+          </ul>
+        </div>
+        )}
         <Outlet />
     </div>
 
