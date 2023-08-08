@@ -60,6 +60,8 @@ function AdminLists() {
           </p>
         )
       }
+      <div className="table-container">
+
       <table>
         <thead>
           <tr>
@@ -86,6 +88,7 @@ function AdminLists() {
 
         </tbody>
       </table>
+      </div>
     </div>
   )
 }

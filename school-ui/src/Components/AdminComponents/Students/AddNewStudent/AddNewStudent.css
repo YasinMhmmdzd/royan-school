@@ -50,3 +50,19 @@
 .signup-btn:hover{
     background-color: #358535;
 }
+@media only screen and (max-width:1000px){
+    .add-student-container{
+        width: 100%;
+    }
+    .add-student-container form{
+        width: 95%;
+    }
+    .signup-btn{
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 500px){
+    .student-signup-input{
+        width: 90%;
+    }
+}

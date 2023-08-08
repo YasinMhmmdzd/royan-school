@@ -34,3 +34,12 @@
     font-size: 30px;
     color: #78887e;
 }
+@media only screen and (max-width:800px){
+    .admin-service-container{
+        flex-direction: column;
+        width: 100%;
+    }
+    .admin-service{
+        width: 80%;
+    }
+}
