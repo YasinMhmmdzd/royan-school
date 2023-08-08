@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import "./Admin.css"
 import axios from 'axios'
 import RightNav from '../../Components/AdminComponents/RightNav/RightNav'
-import adminContext from '../../Contexts/AdminContexts'
 import { Navigate, Outlet } from 'react-router-dom'
 import Cookies from 'js-cookie'
 function Admin() {
@@ -39,14 +38,12 @@ function Admin() {
     }
 
     {verifyStatus === "verify-ok" && (
-      <adminContext.Provider value={adminInfos}>
 
     <div className="admin-container">
         <RightNav adminName={adminInfos.fullName}/>
         <Outlet />
     </div>
 
-      </adminContext.Provider>
     )}
     </>
   )
