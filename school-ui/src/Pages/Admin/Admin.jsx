@@ -51,11 +51,11 @@ function Admin() {
         <div className="right-responsive-menu">
           <ul className="responsive-list">
             <AiOutlineClose className='close-icon' onClick={()=> setIsOpenMenu(false)}/>
-            <li className="responsive-list-item"><Link to="/"><FaHome className='list-icon'/> صفحه اصلی</Link></li>
-            <li className='responsive-list-item'><Link to="/admin/students"><FaUsers className='list-icon'/> دانش آموزان</Link></li>
-            <li className='responsive-list-item'><Link to="/admin/admins"><BsFillKeyFill className='list-icon'/>مدیران</Link></li>
-            <li className='responsive-list-item'><Link to="/admin/courses"><BiSolidVideos className='list-icon'/> دوره های آموزشی</Link></li>
-            <li className='responsive-list-item logout-item'><Link to="">خروج</Link></li>
+            <li className="responsive-list-item"><Link to="/" onClick={() => setIsOpenMenu(false)}><FaHome className='list-icon'/> صفحه اصلی</Link></li>
+            <li className='responsive-list-item'><Link to="/admin/students" onClick={() => setIsOpenMenu(false)}><FaUsers className='list-icon'/> دانش آموزان</Link></li>
+            <li className='responsive-list-item'><Link to="/admin/admins" onClick={() => setIsOpenMenu(false)}><BsFillKeyFill className='list-icon'/>مدیران</Link></li>
+            <li className='responsive-list-item'><Link to="/admin/courses" onClick={() => setIsOpenMenu(false)}><BiSolidVideos className='list-icon'/> دوره های آموزشی</Link></li>
+            <li className='responsive-list-item logout-item'><Link to="" onClick={() => setIsOpenMenu(false)}>خروج</Link></li>
           </ul>
         </div>
         )}
