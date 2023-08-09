@@ -53,3 +53,8 @@
         opacity: 1;
     }
 }
+@media only screen and (max-width:550px){
+    .student-info-box{
+        width: 30%;
+    }
+}

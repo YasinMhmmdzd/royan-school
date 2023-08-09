@@ -1,0 +1,5 @@
+.courses-videos-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+}

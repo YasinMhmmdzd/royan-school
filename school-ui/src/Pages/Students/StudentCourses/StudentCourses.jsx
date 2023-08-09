@@ -1,9 +1,11 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import "./StudentCourses.css"
 import React, { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import CoursesHeader from '../../../Components/CoursesComponents/CoursesHeader/CoursesHeader'
 import studentInfosContext from '../../../Contexts/StudentContexts'
+import CoursesVideosCards from '../../../Components/CoursesComponents/CoursesVideosCards/CoursesVideosCards'
 function StudentCourses() {
 
   const [studentInfos , setStudentInfos] = useState([])
@@ -41,6 +43,11 @@ function StudentCourses() {
 
       <div className="student-courses">
         <CoursesHeader />
+        <div className="courses-videos-container">
+          <CoursesVideosCards />
+          <CoursesVideosCards />
+          <CoursesVideosCards />
+        </div>
       </div>
 
       </studentInfosContext.Provider>
