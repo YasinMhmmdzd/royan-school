@@ -19,6 +19,9 @@
     border-radius: 10px;
     cursor: pointer;
 }
+.table-container{
+    overflow-x: auto;
+}
 table{
     margin: 25px auto;
     box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
@@ -35,4 +38,24 @@ thead{
 th{
     padding: 8px;
     margin: 0;
+}
+@media only screen and (max-width:1000px){
+    .student-lists-container{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:750px){
+    .student-lists-container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .filter-container{
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    .filter-container button{
+        width: 75%;
+        margin: 25px auto;
+    }
 }

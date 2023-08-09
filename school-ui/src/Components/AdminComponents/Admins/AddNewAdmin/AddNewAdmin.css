@@ -39,3 +39,19 @@
 .signup-btn:hover{
     background-color: #358535;
 }
+@media only screen and (max-width:1000px){
+    .add-admin-container{
+        width: 100%;
+    }
+    .add-admin-container form{
+        width: 95%;
+    }
+    .signup-btn{
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 500px){
+    .admin-signup-input{
+        width: 90%;
+    }
+}

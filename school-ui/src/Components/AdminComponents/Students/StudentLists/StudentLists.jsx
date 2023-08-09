@@ -35,6 +35,8 @@ function StudentLists() {
         <button onClick={() => setFilter("3" , "1")}>کلاس دوازدهم تجربی</button>
         <button onClick={() => setFilter("3" , "2")}>کلاس دوزادهم ریاضی</button>
       </div>
+      <div className="table-container">
+
       <table>
       <thead>
                 <tr>
@@ -53,6 +55,7 @@ function StudentLists() {
       ))}
             </tbody>
       </table>
+      </div>
     </div>
   )
 }
