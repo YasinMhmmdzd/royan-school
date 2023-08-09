@@ -83,6 +83,7 @@ function AddNewStudent() {
       <br />
       رشته تحصیلی :‌
       <select className='student-signup-select' onChange={(e) => setStudentField(e.target.value)}>
+        <option value="">----</option>
         <option value="1">تجربی</option>
         <option value="2">ریاضی</option>
       </select>
@@ -91,7 +92,7 @@ function AddNewStudent() {
           <p className="err">رشته را وارد کنید</p>
         )
       }
-      <button className='signup-btn'>اضافه کردن کاربر</button>
+      <button className='signup-btn' disabled={fetchStatus === "pending" ? true : false}>اضافه کردن کاربر</button>
       {fetchStatus === "pending" && (
         <p className="loading"> درحال پردازش...</p>
       )}

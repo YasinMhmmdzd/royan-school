@@ -43,7 +43,9 @@ function Login() {
             }).then(
                 (res) => {
                     setStudentStatus(res.data.message)
-                    Cookies.set("studentToken" , res.data.token , {expires: 14})
+                    if(res.data.message === "success"){
+                        Cookies.set("studentToken" , res.data.token , {expires: 14})
+                    }
                 }
             )
         }
@@ -127,7 +129,7 @@ function Login() {
                     {(isStudentSubmitted && studentPhoneNumber.length !== 11) && (
                         <p className="err">شماره همراه باید ۱۱رقم باشد</p>
                     )}
-                    <button className='login-btn'>ورود</button>
+                    <button className='login-btn' disabled={studentStatus === "pending" ? true : false}>ورود</button>
                     {(isStudentSubmitted && studentStatus === "pending") && (
                         <p className="loading">درحال پردازش ...</p>
                     )}
@@ -151,7 +153,7 @@ function Login() {
                         {(isAdminSubmitted && adminUserPassword.length < 1) && (
                         <p className="err">رمز عبور باید بیشتر از ۸کاراکتر باشد</p>
                         )}
-                         <button className='login-btn'>ورود</button>
+                         <button className='login-btn' disabled={adminStatus === "pending" ? true : false} onClick={() => console.log('clicked')}>ورود</button>
                          {(isAdminSubmitted && adminStatus === "pending") && (
                         <p className="loading">درحال پردازش ...</p>
                     )}

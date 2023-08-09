@@ -45,7 +45,7 @@ function AddNewAdmin() {
         {(isSubmitted && newAdminPassword.length <= 7) && (
           <p className="err">رمز عبور باید بیش از ۸ کاراکتر باشد</p>
         )}
-        <button className='signup-btn'>اضافه کردن کاربر</button>
+        <button className='signup-btn' disabled={fetchStatus === "pending" ? true : false}>اضافه کردن کاربر</button>
         {fetchStatus === "pending" && (
           <p className="loading">درحال پردازش...</p>
         )}
