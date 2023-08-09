@@ -30,9 +30,10 @@
     text-align: center;
     cursor: pointer;
     animation: load-box 0.5s ease-in-out;
-}
-.student-info-sub-box a{
     color: #e13d3d;
+}
+.student-info-sub-box button{
+    all: unset;
 }
 .go-to-home{
     padding: 10px;
