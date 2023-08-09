@@ -59,6 +59,5 @@
 @media only screen and (max-width:650px){
     .main-about-image img{
         height: 300px;
-        border-radius: 0;
     }
 }
