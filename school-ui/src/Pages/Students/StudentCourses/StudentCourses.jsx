@@ -2,6 +2,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import React, { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import CoursesHeader from '../../../Components/CoursesComponents/CoursesHeader/CoursesHeader'
 
 function StudentCourses() {
 
@@ -36,7 +37,11 @@ function StudentCourses() {
     }
 
     {verifyStatus === "verify-ok" && (
-    <div>StudentCourses</div>
+      
+      <div className="student-courses">
+        <CoursesHeader />
+      </div>
+      
     )}
 
     
