@@ -1,0 +1,50 @@
+.courses-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #ebebeb;
+    box-shadow: rgba(17, 12, 46, 0.5) 0px 48px 100px 0px;
+    position: sticky;
+    top: 0;
+    right: 0;
+}
+.student-info-box{
+    box-shadow: rgba(60, 103, 83, 0.5) 0px 30px 60px -12px, rgba(0, 63, 49, 0.5) 0px 18px 36px -18px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+    width: 15%;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+.student-info-sub-box{
+    position: absolute;
+    right: 0;
+    box-shadow: rgba(60, 103, 83, 0.5) 0px 30px 60px -12px, rgba(0, 63, 49, 0.5) 0px 18px 36px -18px;
+    background-color: #ffffff;
+    border-radius:0 0 10px 10px;
+    padding: 15px 0;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    animation: load-box 0.5s ease-in-out;
+}
+.student-info-sub-box a{
+    color: #e13d3d;
+}
+.go-to-home{
+    padding: 10px;
+}
+.go-to-home a{
+    color: #333;
+}
+@keyframes load-box{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
