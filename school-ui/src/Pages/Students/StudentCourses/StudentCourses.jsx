@@ -3,12 +3,11 @@ import Cookies from 'js-cookie'
 import React, { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import CoursesHeader from '../../../Components/CoursesComponents/CoursesHeader/CoursesHeader'
-
+import studentInfosContext from '../../../Contexts/StudentContexts'
 function StudentCourses() {
 
   const [studentInfos , setStudentInfos] = useState([])
   const [verifyStatus , setVerifyStatus] = useState('')
-
 
   async function fetchData(){
     await axios.get("https://school-node.iran.liara.run/user" , {
@@ -37,10 +36,14 @@ function StudentCourses() {
     }
 
     {verifyStatus === "verify-ok" && (
-      
+
+      <studentInfosContext.Provider value={studentInfos}>
+
       <div className="student-courses">
         <CoursesHeader />
       </div>
+
+      </studentInfosContext.Provider>
       
     )}
 
