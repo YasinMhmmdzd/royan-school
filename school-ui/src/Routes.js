@@ -7,6 +7,8 @@ import AdminLists from "./Components/AdminComponents/Admins/AdminLists/AdminList
 import AddNewAdmin from "./Components/AdminComponents/Admins/AddNewAdmin/AddNewAdmin";
 import AddNewStudent from "./Components/AdminComponents/Students/AddNewStudent/AddNewStudent";
 import StudentCourses from "./Pages/Students/StudentCourses/StudentCourses";
+import StudentLists from "./Components/AdminComponents/Students/StudentLists/StudentLists";
+import AdminInfo from "./Components/AdminComponents/AdminInfo/AdminInfo";
 let pageRoutes = [
     {path:"/" , element:<Home />},
     {path:"/login" , element:<Login />},
@@ -18,8 +20,9 @@ let pageRoutes = [
     ) , children : [
         {path:"students" , element:<Students /> , children:[
             {path:"add" , element:<AddNewStudent />} , 
-            {path:"list" , element:<StudentCourses />}
+            {path:"list" , element:<StudentLists />}
         ]},
+        {path: "home" , element:<AdminInfo />},
         {path:"admins" , element:<Admins /> , children:[
             {path:"add" , element:<AddNewAdmin />},
             {path:"list" , element:<AdminLists />}

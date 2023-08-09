@@ -8,7 +8,10 @@ function StudentTableLists({fullName , phoneNumber , uniqueCode ,  motherNumber 
                     <td>{uniqueCode}</td>
                     <td>{motherNumber}</td>
                     <td>{fatherNumber}</td>
-                    <td>{Grade}</td>
+                    <td>{Grade === '1' && ('دهم')}
+                    {Grade === '2' && ('یازدهم')}
+                    {Grade === '3' && ('دوزادهم')}
+                    </td>
                     <td>{studyField === '1' ? 'تجربی' : 'ریاضی'}</td>
                 </tr>
   )

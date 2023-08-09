@@ -35,7 +35,7 @@ function Login() {
     const submitStudentHandler = (e) => {
         e.preventDefault()
         setIsStudentSubmitted(true)
-        // if(studentNationalCode.length === 10 && studentPhoneNumber.length === 11){
+        if(studentNationalCode.length === 10 && studentPhoneNumber.length === 11){
             setStudentStatus("pending")
             axios.post("https://school-node.iran.liara.run/login/user" , {
                 uniqueCode : studentNationalCode , 
@@ -46,7 +46,7 @@ function Login() {
                     Cookies.set("studentToken" , res.data.token , {expires: 14})
                 }
             )
-        // }
+        }
     }
 
 
@@ -89,7 +89,7 @@ function Login() {
 
     {
         userLoggedIn && (
-            <Navigate to="/admin" />
+            <Navigate to="/admin/home" />
         )
         
     }
@@ -153,7 +153,7 @@ function Login() {
                             {(isAdminSubmitted && adminStatus === "success") && (
                                 <>
                                 <p className="success">در حال انتقال به پنل ...</p>
-                                <Navigate to="/admin" />
+                                <Navigate to="/admin/home" />
                                 </>
                     )}
                                    {(isAdminSubmitted && adminStatus === "not-valid") && (
