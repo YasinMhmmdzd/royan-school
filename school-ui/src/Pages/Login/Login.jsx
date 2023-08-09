@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import "./Login.css"
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import { Navigate } from 'react-router-dom'
-
+import { Link, Navigate } from 'react-router-dom'
+import {AiOutlineArrowLeft} from 'react-icons/ai'
 
 function Login() {
 
@@ -106,6 +106,11 @@ function Login() {
         (!userLoggedIn || !studentLoggedIn) && (
     <div className="login-form-container">
         <div className="login-form">
+            <div className="return-container">
+                <Link to="/">
+                <AiOutlineArrowLeft />
+                </Link>
+            </div>
             <div className="right-login-form">
                     <img src="./images/logo-black.png" alt="لوگوی مدرسه رویان" />
                     <div className="select-role">
