@@ -13,7 +13,12 @@ function Admin() {
   const [isOpenMenu , setIsOpenMenu] = useState(false)
   const [verifyStatus , setVerifyStatus] = useState('')
   const [adminInfos , setAdminInfos] = useState({})
+  const [navigateOk , setNavigateOk] = useState(false)
 
+  const logOutAdmin = () => {
+    Cookies.remove("adminToken")
+    setNavigateOk(true)
+  }
 
   async function fetchData(){
     await axios.get("https://school-node.iran.liara.run/admin" , {
@@ -35,6 +40,11 @@ function Admin() {
 
   return (
     <>
+    {
+      navigateOk && (
+        <Navigate to="/login" />
+      )
+    }
 
     {
       verifyStatus === "token-error" && (
@@ -55,7 +65,7 @@ function Admin() {
             <li className='responsive-list-item'><Link to="/admin/students" onClick={() => setIsOpenMenu(false)}><FaUsers className='list-icon'/> دانش آموزان</Link></li>
             <li className='responsive-list-item'><Link to="/admin/admins" onClick={() => setIsOpenMenu(false)}><BsFillKeyFill className='list-icon'/>مدیران</Link></li>
             <li className='responsive-list-item'><Link to="/admin/courses" onClick={() => setIsOpenMenu(false)}><BiSolidVideos className='list-icon'/> دوره های آموزشی</Link></li>
-            <li className='responsive-list-item logout-item'><Link to="" onClick={() => setIsOpenMenu(false)}>خروج</Link></li>
+            <li className='responsive-list-item logout-item'><Link to="" onClick={() => logOutAdmin()}>خروج</Link></li>
           </ul>
         </div>
         )}
