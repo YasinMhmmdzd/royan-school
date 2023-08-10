@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import "./Login.css"
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import { Navigate } from 'react-router-dom'
-
+import { Link, Navigate } from 'react-router-dom'
+import {AiOutlineArrowLeft} from 'react-icons/ai'
 
 function Login() {
 
@@ -43,7 +43,9 @@ function Login() {
             }).then(
                 (res) => {
                     setStudentStatus(res.data.message)
-                    Cookies.set("studentToken" , res.data.token , {expires: 14})
+                    if(res.data.message === "success"){
+                        Cookies.set("studentToken" , res.data.token , {expires: 14})
+                    }
                 }
             )
         }
@@ -106,6 +108,11 @@ function Login() {
         (!userLoggedIn || !studentLoggedIn) && (
     <div className="login-form-container">
         <div className="login-form">
+            <div className="return-container">
+                <Link to="/">
+                <AiOutlineArrowLeft />
+                </Link>
+            </div>
             <div className="right-login-form">
                     <img src="./images/logo-black.png" alt="لوگوی مدرسه رویان" />
                     <div className="select-role">
@@ -122,7 +129,7 @@ function Login() {
                     {(isStudentSubmitted && studentPhoneNumber.length !== 11) && (
                         <p className="err">شماره همراه باید ۱۱رقم باشد</p>
                     )}
-                    <button className='login-btn'>ورود</button>
+                    <button className='login-btn' disabled={studentStatus === "pending" ? true : false}>ورود</button>
                     {(isStudentSubmitted && studentStatus === "pending") && (
                         <p className="loading">درحال پردازش ...</p>
                     )}
@@ -146,7 +153,7 @@ function Login() {
                         {(isAdminSubmitted && adminUserPassword.length < 1) && (
                         <p className="err">رمز عبور باید بیشتر از ۸کاراکتر باشد</p>
                         )}
-                         <button className='login-btn'>ورود</button>
+                         <button className='login-btn' disabled={adminStatus === "pending" ? true : false} onClick={() => console.log('clicked')}>ورود</button>
                          {(isAdminSubmitted && adminStatus === "pending") && (
                         <p className="loading">درحال پردازش ...</p>
                     )}
