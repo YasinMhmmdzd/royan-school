@@ -1,7 +1,7 @@
 .courses-header{
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: 10px;
     background-color: #ebebeb;
     box-shadow: rgba(17, 12, 46, 0.5) 0px 48px 100px 0px;
     position: sticky;
@@ -9,7 +9,6 @@
     right: 0;
 }
 .student-info-box{
-    position: relative;
     box-shadow: rgba(60, 103, 83, 0.5) 0px 30px 60px -12px, rgba(0, 63, 49, 0.5) 0px 18px 36px -18px;
     background-color: #ffffff;
     border-radius: 12px;
@@ -17,33 +16,21 @@
     width: 15%;
     text-align: center;
     cursor: pointer;
-    z-index: -10000;
-}
-.student-info-sub-box{
-    position: absolute;
-    right: 0;
-    z-index: 100000;
-    box-shadow: rgba(60, 103, 83, 0.5) 0px 30px 60px -12px, rgba(0, 63, 49, 0.5) 0px 18px 36px -18px;
-    background-color: #ffffff;
-    border-radius:0 0 10px 10px;
-    padding: 15px 0;
-    height: 40px;
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-    animation: load-box 0.5s ease-in-out;
-    color: #e13d3d;
-    width: 100%;
-}
-.student-info-sub-box button{
-    all: unset;
 }
 .go-to-home{
     padding: 10px;
     font-size: 20px;
+    display: flex;
+}
+.logout-box{
+    color: #e13838;
+    font-size: 15px;
+    margin: 2px 20px;
+    cursor: pointer;
 }
 .go-to-home a{
     color: #333;
+    padding: 5px;
 }
 @keyframes load-box{
     from{
@@ -56,5 +43,10 @@
 @media only screen and (max-width:550px){
     .student-info-box{
         width: 30%;
+    }
+}
+@media only screen and (max-width:400px){
+    .student-info-box{
+        width: 45%;
     }
 }

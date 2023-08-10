@@ -8,7 +8,6 @@ import studentInfosContext from '../../../Contexts/StudentContexts'
 
 function CoursesHeader() {
 
-    const [isOpenInfoBox , setIsOpenInfoBox] = useState(false)
     const [isNavigate , setIsNavigate] = useState(false)
     const studentInfos = useContext(studentInfosContext)
 
@@ -28,24 +27,19 @@ function CoursesHeader() {
     
     <div className="courses-header">
 
-        <div className="student-info-box" onClick={() => setIsOpenInfoBox(prev => !prev)}>
+        <div className="student-info-box">
             <p>
                 <AiOutlineUser />
                 {studentInfos.fullName}
             </p>
-            {isOpenInfoBox && (
-
-            <div className="student-info-sub-box">
-                <button onClick={() => logOutStudent}>
-                    <BiLogOut />
-                    خروج
-                </button>
-            </div>
-
-            )}
         </div>
 
         <div className="go-to-home">
+
+        <div className="logout-box" onClick={() => logOutStudent()}>
+            <BiLogOut />
+            خروج
+        </div>
 
         <Link to="/">
             <AiOutlineArrowLeft />
