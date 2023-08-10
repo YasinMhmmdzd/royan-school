@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./Header.css"
-import Typewriter from "typewriter-effect";
+import ReactTypingEffect from 'react-typing-effect'
 import { Link } from 'react-router-dom'
 import {BiSolidVideos , BiLogIn} from 'react-icons/bi'
 import {BsChevronDoubleDown} from 'react-icons/bs'
@@ -46,17 +46,9 @@ function Header() {
                 دبیرستان زندگی <span className='school-name'>رویان</span>
             </h1>
             <p className='middle-text'>
-            <Typewriter
- 
-            onInit={(typewriter) => {
-            typewriter
-         .typeString("دبیرستانی برای همه استعداد ها")
-         .pauseFor(1000)
-         .deleteAll()
-         .typeString("با محوریت کنکور و آموزش مهارت های زندگی")
-         .start();
- }}
-/>
+            <ReactTypingEffect
+            text={["دبیرستانی برای همه استعداد ها", "با رویکرد کنکور و آموزش مهارت های زندگی"]}
+            />
             </p>
         </div>
         <div className="go-to-down" onClick={goToDown}>
