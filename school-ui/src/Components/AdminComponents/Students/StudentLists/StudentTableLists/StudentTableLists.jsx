@@ -1,9 +1,10 @@
 import React from 'react'
 import "./StudentTableLists.css"
-function StudentTableLists({fullName , phoneNumber , uniqueCode ,  motherNumber , fatherNumber , Grade , studyField}) {
+function StudentTableLists({fullName, fatherName , phoneNumber , uniqueCode ,  motherNumber , fatherNumber , Grade , studyField}) {
   return (
                 <tr>
                     <td>{fullName}</td>
+                    <td>{fatherName}</td>
                     <td>{phoneNumber}</td>
                     <td>{uniqueCode}</td>
                     <td>{motherNumber}</td>

@@ -35,6 +35,9 @@ function Admin() {
 
 
   useEffect(()=>{
+
+    document.title = "پنل ادمین | دبیرستان زندگی رویان"
+
     fetchData()
   },[] )
 

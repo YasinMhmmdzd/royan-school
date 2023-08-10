@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Home.css"
 import Header from '../../Components/Header/Header'
 import MainAbout from '../../Components/MainAbout/MainAbout'
@@ -7,6 +7,13 @@ import MiddleBox from '../../Components/MiddleBox/MiddleBox'
 import Footer from '../../Components/Footer/Footer'
 
 function Home() {
+
+  
+  useEffect( ()=>{
+    document.title ="دبیرستان زندگی رویان"
+  } )
+
+
   return (
     <div className="home-page">
       <Header />
