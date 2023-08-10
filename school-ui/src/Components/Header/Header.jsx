@@ -25,7 +25,8 @@ function Header() {
         <AiOutlineClose onClick={closeHeader} className='close-icon'/>
         <ul className='responsive-list'>
           <li><Link to="/">صفحه اصلی</Link></li>
-          <li><a href='#'>پیش ثبت نام</a></li>
+          <li><a href='https://royan-reserve.ir'>پیش ثبت نام</a></li>
+          <li className="list-menu-item"><a href="https://royan.adviseman.ir">برگزاری آزمون های روانشناسی</a></li>
           <li><Link to={Cookies.get("studentToken") ? '/student-courses' : '/login'}><BiSolidVideos /> ویدیو های آموزشی</Link></li>
           <li><Link to={Cookies.get("adminToken") ? '/admin/home' : '/login'}><BiLogIn /> ورود</Link></li>
         </ul>
@@ -36,6 +37,7 @@ function Header() {
             <ul className="list-menu">
                <li className="list-menu-item"><Link to="/">صفحه اصلی</Link></li>
                <li className="list-menu-item"><a href='https://royan-reserve.ir'>پیش ثبت نام</a></li>
+               <li className="list-menu-item"><a href="https://royan.adviseman.ir">برگزاری آزمون های روانشناسی</a></li>
                <li className="list-menu-item list-btn"><Link to={Cookies.get("studentToken") ? '/student-courses' : '/login'}><BiSolidVideos className='list-icon'/> ویدیوهای آموزشی</Link></li>
                <li className="list-menu-item list-btn"><Link to={Cookies.get("adminToken") ? '/admin/home' : '/login'}><BiLogIn className='list-icon'/> ورود</Link></li>
             </ul>
