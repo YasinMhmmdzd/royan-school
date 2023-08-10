@@ -23,6 +23,9 @@ function Login() {
 
 
     useEffect(() => {
+
+        document.title = "ورود | دبیرستان زندگی رویان"
+
         if(Cookies.get("adminToken")){
             setUserLoggedIn(true)
         }
