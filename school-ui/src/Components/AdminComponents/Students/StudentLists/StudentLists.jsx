@@ -16,6 +16,7 @@ function StudentLists() {
         token : Cookies.get("adminToken")
       }
     }).then((res) => {
+      console.log(res.data);
       setAllStudents(res.data)
     })
   } , [])
@@ -41,10 +42,11 @@ function StudentLists() {
       <thead>
                 <tr>
                     <th>نام و نام خانوادگی</th>
+                    <th>نام پدر</th>
                     <th>شماره تلفن</th>
                     <th>کد ملی</th>
-                    <th>نام مادر</th>
-                    <th>نام پدر</th>
+                    <th>همراه مادر</th>
+                    <th>همراه پدر</th>
                     <th>پایه تحصیلی</th>
                     <th>رشته</th>
                 </tr>
