@@ -10,7 +10,6 @@ function AdminInfo() {
         token : Cookies.get("adminToken")
       }
     }).then((res) => {
-      console.log(res)
       setAdminInfos(res.data)
     })
   } , [] )

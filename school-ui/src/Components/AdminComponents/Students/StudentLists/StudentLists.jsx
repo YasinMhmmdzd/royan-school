@@ -16,7 +16,6 @@ function StudentLists() {
         token : Cookies.get("adminToken")
       }
     }).then((res) => {
-      console.log(res.data);
       setAllStudents(res.data)
     })
   } , [])
@@ -53,7 +52,7 @@ function StudentLists() {
             </thead>
             <tbody>
       {newStudents.map(student => (
-        <StudentTableLists {...student}/>
+        <StudentTableLists key={student._id} {...student}/>
       ))}
             </tbody>
       </table>
