@@ -100,7 +100,7 @@ function AddNewStudent() {
         <p className="loading"> درحال پردازش...</p>
       )}
       {fetchStatus === "user-created" && (
-        <p className="success">دانش آموز اضافه شد</p>
+        <p className="success" style={{animation:'none'}}>دانش آموز اضافه شد</p>
       )}
       {
         fetchStatus === "user-used" && (
