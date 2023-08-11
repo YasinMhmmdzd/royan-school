@@ -98,9 +98,13 @@ header::before{
     color: #ccc;
     position: absolute;
     bottom: 75px;
-    left: 50%;
-    right: 50%;
+    left: 0;
+    right: 0;
+    margin-left: auto; 
+    margin-right: auto; 
     font-size: 30px;
+    width: 200px;
+    text-align: center;
     cursor: pointer;
     animation: go-to-down 1.5s ease-in-out infinite;
 }
