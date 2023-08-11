@@ -6,6 +6,7 @@ function AddNewStudent() {
 
 
   const [studentFullName , setStudentFullName] = useState('')
+  const [studentFatherName , setStudentFatherName] = useState('')
   const [studentPhoneNumber , setStudentPhoneNumber] = useState('')
   const [studentNationalCode , setStudentNationalCode] = useState('')
   const [studentMohterPhoneNumber , setStudentMotherPhoneNumber] = useState('')
@@ -22,6 +23,7 @@ function AddNewStudent() {
       setFetchStatus('pending')
       axios.post("https://school-node.iran.liara.run/admin/user/signup" , {
         fullName : studentFullName ,
+        fatherName : studentFatherName,
         phoneNumber : studentPhoneNumber , 
         uniqueCode : studentNationalCode ,
         motherNumber : studentMohterPhoneNumber ,
@@ -48,6 +50,7 @@ function AddNewStudent() {
       <h2>اضافه کردن دانش آموز</h2>
       <form onSubmit={newStudentHandler}>
       <input type="text" className='student-signup-input' onChange={(e) => setStudentFullName(e.target.value)} placeholder='نام و نام خانوادگی'/>
+      <input type="text" className='student-signup-input' onChange={(e) => setStudentFatherName(e.target.value)} placeholder='نام پدر'/>
       <input type="text" className='student-signup-input' onChange={(e) => setStudentPhoneNumber(e.target.value)} placeholder='شماره تلفن همراه'/>
       {(submitted && studentPhoneNumber.length !== 11) && (
         <p className="err">شماره موبایل باید ۱۱ رقم باشد</p>

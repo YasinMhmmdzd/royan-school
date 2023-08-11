@@ -47,11 +47,11 @@ function Header() {
             <h1 className="header-title">
                 دبیرستان زندگی <span className='school-name'>رویان</span>
             </h1>
-            <p className='middle-text'>
+            <div className='middle-text'>
             <ReactTypingEffect
             text={["دبیرستانی برای همه استعداد ها", "با رویکرد کنکور و آموزش مهارت های زندگی"]}
             />
-            </p>
+            </div>
         </div>
         <div className="go-to-down" onClick={goToDown}>
           <BsChevronDoubleDown />
