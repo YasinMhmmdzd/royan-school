@@ -20,7 +20,7 @@ function RightNav({adminName}) {
     {!navigateOk && (
     <div className="right-nav">
       <div className="top-right-nav">
-        <img src="../images/logo-black.png" alt="لوگوی دبیرستان رویان" />
+        <img src="../images/logo-black.webp" alt="لوگوی دبیرستان رویان" />
         <h5>سلام {adminName}</h5>
         <ul className="list-menu-admin">
         <li className="list-menu-item-admin"><Link to="/" className='list-link'><FaHome className='list-icon'/> صفحه اصلی</Link></li>

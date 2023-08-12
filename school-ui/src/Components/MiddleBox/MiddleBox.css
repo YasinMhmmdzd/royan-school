@@ -1,6 +1,6 @@
 .middle-box{
     position: relative;
-    background-image: url("../../../public/images/bck-conference.jpg");
+    background-image: url("../../../public/images/bck-conference.webp");
     color: white;
     width: 95%;
     padding: 45px;
@@ -62,7 +62,7 @@
     .middle-box{
         text-align: center;
         background-color: none;
-        background-image: url("../../../public/images/bck-conference.jpg");
+        background-image: url("../../../public/images/bck-conference.webp");
     }
     .middle-box-text h2{
         font-size: 1.2rem;

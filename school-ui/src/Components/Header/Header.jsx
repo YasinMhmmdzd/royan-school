@@ -41,7 +41,7 @@ function Header() {
                <li className="list-menu-item list-btn"><Link to={Cookies.get("studentToken") ? '/student-courses' : '/login'}><BiSolidVideos className='list-icon'/> ویدیوهای آموزشی</Link></li>
                <li className="list-menu-item list-btn"><Link to={Cookies.get("adminToken") ? '/admin/home' : '/login'}><BiLogIn className='list-icon'/> ورود</Link></li>
             </ul>
-            <img src="./images/logo.png" alt="school logo"  className='logo'/>
+            <img src="./images/logo.webp" alt="school logo"  className='logo'/>
         </div>
         <div className="middle-header">
             <h1 className="header-title">
