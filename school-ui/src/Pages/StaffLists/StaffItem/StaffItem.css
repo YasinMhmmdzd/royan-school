@@ -1,0 +1,26 @@
+.staff-item{
+    width: 40%;
+    margin: 15px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    padding: 10px;
+    margin: 25px;
+    border-radius: 10px;
+
+}
+.right-staff{
+    width: 75%;
+}
+.right-staff h3{
+    font-family: kalameh;
+}
+.right-staff p{
+    color: #666;
+    padding: 15px 5px;
+}
+.left-staff{
+    width: 25%;
+}
+.left-staff img{
+    width: 100%;
+}
