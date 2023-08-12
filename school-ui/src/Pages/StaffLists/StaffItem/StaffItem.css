@@ -24,3 +24,19 @@
 .left-staff img{
     width: 100%;
 }
+@media only screen and (max-width:750px){
+    .staff-item{
+        width: 75%;
+    }
+}
+@media only screen and (max-width:450px){
+    .staff-item{
+        width: 90%;
+    }
+    .right-staff h3{
+        font-size: 17px;
+    }
+    .right-staff p{
+        font-size: 13px;
+    }
+}

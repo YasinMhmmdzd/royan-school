@@ -7,9 +7,6 @@ function StaffLists() {
   return (
     <>    
     <div className="staff-container">
-      <div className="got-to-home">
-        
-      </div>
         {staffDatas.map(staff => (
             <StaffItem {...staff}/>
         ))}
