@@ -34,9 +34,6 @@ td{
 .error-icon{
     color: #bb3232;
 }
-.edit-icon{
-    color: #2f5fa7;
-}
 @media only screen and (max-width:1000px){
     .admin-lists-container{
         width: 100%;

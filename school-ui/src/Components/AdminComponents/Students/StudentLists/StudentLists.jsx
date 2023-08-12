@@ -48,6 +48,7 @@ function StudentLists() {
                     <th>همراه پدر</th>
                     <th>پایه تحصیلی</th>
                     <th>رشته</th>
+                    <th>عملیات</th>
                 </tr>
             </thead>
             <tbody>
