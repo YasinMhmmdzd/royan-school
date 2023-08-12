@@ -65,6 +65,7 @@ function AdminLists() {
       <table>
         <thead>
           <tr>
+          <td>ردیف</td>
           <th>نام و نام خانوادگی</th>
           <th>نام کاربری</th>
           <th>نقش</th>
@@ -73,14 +74,14 @@ function AdminLists() {
         </thead>
         <tbody>
           {
-            allAdmins.map(admin => (
+            allAdmins.map((admin , index) => (
               <tr key={admin._id}>
-
+                <td>{index + 1}</td>
                 <td>{admin.fullName}</td>
                 <td>{admin.userName} @</td>
                 <td>{admin.role === "admin" ? 'ادمین' : 'سوپر ادمین'}</td>
                 <td>
-              <AiFillDelete title='حذف ادمین' className='opreation-icon error-icon' onClick={() => deleteUser(admin.userName)}/>
+              <AiFillDelete title='حذف ادمین' className='opreation-icon delete-icon' onClick={() => deleteUser(admin.userName)}/>
             </td>
               </tr>
             ))

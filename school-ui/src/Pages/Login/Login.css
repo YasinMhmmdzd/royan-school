@@ -95,7 +95,7 @@ form{
     content: '';
 }
 .left-login-form{
-    background-image: url("../../../public/images/bck-login.jpg");
+    background-image: url("../../../public/images/bck-login.webp");
     background-position: center;
     background-size: cover;
     position: relative;

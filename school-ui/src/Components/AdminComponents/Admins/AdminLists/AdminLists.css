@@ -31,11 +31,8 @@ td{
     padding: 10px;
     cursor: pointer;
 }
-.error-icon{
+.delete-icon{
     color: #bb3232;
-}
-.edit-icon{
-    color: #2f5fa7;
 }
 @media only screen and (max-width:1000px){
     .admin-lists-container{
@@ -45,5 +42,7 @@ td{
 @media only screen and (max-width:750px){
     table{
         width: 100%;
+        margin: 0 !important;
+        padding:0 20px;
     }
 }

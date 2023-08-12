@@ -117,7 +117,7 @@ function Login() {
                 </Link>
             </div>
             <div className="right-login-form">
-                    <img src="./images/logo-black.png" alt="لوگوی مدرسه رویان" />
+                    <img src="./images/logo-black.webp" alt="لوگوی مدرسه رویان" />
                     <div className="select-role">
                         <button className={isStudentActive ? 'role-btn active' : 'role-btn'} onClick={setStudnetActive}>دانش آموز</button>
                         <button className={isAdminActive ? 'role-btn active' : 'role-btn'} onClick={setAdminActive}>مدیر</button>

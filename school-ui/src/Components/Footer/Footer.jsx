@@ -15,7 +15,7 @@ function Footer() {
             <p><AiFillPhone /> تلفن : 05136059333 , 09154433630</p>
         </div>
         <div className="left-footer">
-            <img src="./images/logo.png" alt="" />
+            <img src="./images/logo.webp" alt="" />
         </div>
         </div>
         <div className="social-media">
