@@ -9,10 +9,12 @@ import AddNewStudent from "./Components/AdminComponents/Students/AddNewStudent/A
 import StudentCourses from "./Pages/Students/StudentCourses/StudentCourses";
 import StudentLists from "./Components/AdminComponents/Students/StudentLists/StudentLists";
 import AdminInfo from "./Components/AdminComponents/AdminInfo/AdminInfo";
+import StaffLists from "./Pages/StaffLists/StaffLists";
 let pageRoutes = [
     {path:"/" , element:<Home />},
     {path:"/login" , element:<Login />},
     {path:"/student-courses" , element:<StudentCourses />},
+    {path:"/staff" , element:<StaffLists />},
     {path:"/admin/*" , element:(
         <>
     <Admin />
