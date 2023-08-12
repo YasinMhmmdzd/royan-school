@@ -126,7 +126,7 @@ router.delete("/delete/:userName?", auth, async (req, res) => {
 // @route DELETE /admin/delete
 // @accsess private
 
-router.delete("/delete/:uniqueCode?", auth, async (req, res) => {
+router.delete("/user/delete/:uniqueCode?", auth, async (req, res) => {
     try {
         if (req.user.rolee == "admin") return res.json({ message: "admin-not-access" });
         await User.findOneAndDelete({ uniqueCode: req.params.uniqueCode });
