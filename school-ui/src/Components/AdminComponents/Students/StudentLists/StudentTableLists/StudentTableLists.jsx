@@ -15,7 +15,7 @@ function StudentTableLists({fullName, fatherName , phoneNumber , uniqueCode ,  m
                     {Grade === '3' && ('دوزادهم')}
                     </td>
                     <td>{studyField === '1' ? 'تجربی' : 'ریاضی'}</td>
-                    <td><AiFillDelete title='حذف ادمین' className='opreation-icon error-icon' onClick={() => deleteStudent(uniqueCode)}/></td>
+                    <td><AiFillDelete title='حذف ادمین' className='opreation-icon delete-icon' onClick={() => deleteStudent(uniqueCode)}/></td>
                 </tr>
   )
 }

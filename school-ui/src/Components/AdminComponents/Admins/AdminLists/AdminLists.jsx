@@ -81,7 +81,7 @@ function AdminLists() {
                 <td>{admin.userName} @</td>
                 <td>{admin.role === "admin" ? 'ادمین' : 'سوپر ادمین'}</td>
                 <td>
-              <AiFillDelete title='حذف ادمین' className='opreation-icon error-icon' onClick={() => deleteUser(admin.userName)}/>
+              <AiFillDelete title='حذف ادمین' className='opreation-icon delete-icon' onClick={() => deleteUser(admin.userName)}/>
             </td>
               </tr>
             ))

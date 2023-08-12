@@ -31,7 +31,7 @@ td{
     padding: 10px;
     cursor: pointer;
 }
-.error-icon{
+.delete-icon{
     color: #bb3232;
 }
 @media only screen and (max-width:1000px){
