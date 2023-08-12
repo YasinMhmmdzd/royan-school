@@ -49,7 +49,7 @@ router.post("/signup", auth, async (req, res) => {
     }
 });
 
-// @desc  signup user for SuperAdmin
+// @desc signup user for SuperAdmin
 // @route POST /admin/user/signup
 // @access private
 router.post("/user/signup", auth, async (req, res) => {
@@ -116,6 +116,20 @@ router.delete("/delete/:userName?", auth, async (req, res) => {
     try {
         if (req.user.role == "admin") return res.json({ message: "admin-not-access" });
         await Admin.findOneAndDelete({ userName: req.params.userName });
+        res.json({ message: "delete-ok" });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// @desc delete user
+// @route DELETE /admin/delete
+// @accsess private
+
+router.delete("/delete/:uniqueCode?", auth, async (req, res) => {
+    try {
+        if (req.user.rolee == "admin") return res.json({ message: "admin-not-access" });
+        await User.findOneAndDelete({ uniqueCode: req.params.uniqueCode });
         res.json({ message: "delete-ok" });
     } catch (error) {
         console.log(error);
