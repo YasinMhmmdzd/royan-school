@@ -176,7 +176,7 @@ function Login() {
             </div>
             <div className="left-login-form">
                 <h1>
-                    دبیرستان رویان راهی برای پیشرفت
+                    آینده از اینجا آغاز می شود
                 </h1>
             </div>
         </div>
