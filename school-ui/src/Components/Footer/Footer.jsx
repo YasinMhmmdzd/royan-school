@@ -9,9 +9,9 @@ function Footer() {
         <div className="top-footer">
         <div className="right-footer">
             <h2 className="right-footer-title">
-                دبیرستان رویان راهی برای پیشرفت
+                آینده از اینجا آغاز می شود
             </h2>
-            <p> <CiLocationOn />نشانی :‌وکیل آباد , جلال آل احمد , جلال ۲  , پلاک ۶۴ , دبیرستان زندگی رویان</p>
+            <p> <CiLocationOn />نشانی :‌ وکیل آباد, جلال آل احمد ۲ , پلاک ۶۴</p>
             <p><AiFillPhone /> تلفن : 05136059333 , 09154433630</p>
         </div>
         <div className="left-footer">
