@@ -95,6 +95,29 @@ let staffDatas = [
         name:"استاد یونس فاتحی",
         role:"دبیر زبان انگلیسی",
         image:"Yunes-Fatehi.png"
+    },
+    {
+        id:17,
+        name:"استاد محمد امین قبانچی",
+        role : "دبیر ریاضی",
+        image : "Mohammadamin-Ghapanchi.png"
+    },
+    {
+        id:18,
+        name : "استاد انتظاری" ,
+        role : "دبیر شیمی" ,
+        image : "Entezari.png"
+    },
+    {
+        id:19,
+        name : "استاد امیرحسین محمودی",
+        name : "دبیر دینی و تاریخ معاصر" ,
+        image : "AmirHossein-Mahmudi.png"
+    },
+    {
+        id:20,
+        name : "استاد حسین نعیمی",
+        image: "Hossein-Naeeimi.png"
     }
 ]
 
