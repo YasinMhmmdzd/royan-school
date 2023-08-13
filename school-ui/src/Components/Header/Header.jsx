@@ -3,9 +3,10 @@ import "./Header.css"
 import ReactTypingEffect from 'react-typing-effect'
 import { Link } from 'react-router-dom'
 import {BiSolidVideos , BiLogIn} from 'react-icons/bi'
-import {BsChevronDoubleDown} from 'react-icons/bs'
-import {FaBars} from 'react-icons/fa'
-import {AiOutlineClose} from  'react-icons/ai'
+import {BsChevronDoubleDown , BsNewspaper} from 'react-icons/bs'
+import {FaBars , FaClipboardList} from 'react-icons/fa'
+import {AiFillHome , AiOutlineClose , AiOutlineUser} from  'react-icons/ai'
+import {HiOutlineClipboardList} from "react-icons/hi"
 import Cookies from 'js-cookie';
 function Header() {
   const [isOpenHeader , setIsOpenHeader] = useState(false)
@@ -24,11 +25,11 @@ function Header() {
       <div className="responsive-menu">
         <AiOutlineClose onClick={closeHeader} className='close-icon'/>
         <ul className='responsive-list'>
-          <li><Link to="/">صفحه اصلی</Link></li>
-          <li><Link to="/staff">فهرست اساتید</Link></li>
-          <li><a href="https://royan.adviseman.ir"> آزمون های روانشناسی</a></li>
-          <li><a href='https://royan-reserve.ir'>پیش ثبت نام</a></li>
-          <li><a href="https://www.planner.gphe.ir/">پلنر درسی</a></li>
+          <li><Link to="/"><AiFillHome /> صفحه اصلی</Link></li>
+          <li><Link to="/staff"><AiOutlineUser /> فهرست اساتید</Link></li>
+          <li><a href="https://royan.adviseman.ir"><BsNewspaper /> آزمون های روانشناسی</a></li>
+          <li><a href='https://royan-reserve.ir'><FaClipboardList /> پیش ثبت نام</a></li>
+          <li><a href="https://www.planner.gphe.ir/"><HiOutlineClipboardList /> پلنر درسی</a></li>
           <li><Link to={Cookies.get("studentToken") ? '/student-courses' : '/login'}><BiSolidVideos /> ویدیو های آموزشی</Link></li>
           <li><Link to={Cookies.get("adminToken") ? '/admin/home' : '/login'}><BiLogIn /> ورود</Link></li>
         </ul>
