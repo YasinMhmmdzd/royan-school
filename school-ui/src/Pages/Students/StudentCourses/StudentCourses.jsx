@@ -24,6 +24,7 @@ function StudentCourses() {
 
   useEffect(()=>{
     fetchData()
+    document.title ="دوره های آموزشی | دبیرستان زندگی رویان"
   })
 
 
