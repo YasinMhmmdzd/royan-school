@@ -1,15 +1,16 @@
 let staffDatas = [
+
     {
-        id:1,
-        name : "دکتر مسعود ضیایی" ,
-        role : "مدیریت و مشاور ارشد دبیرستان",
-        image : "Masoud-ziaei.png"
-    },
-    {
-        id : 2,
+        id : 1,
         name : "مهندس مجید پور حسنی" ,
         role : "موسس دبیرستان" ,
         image : "Majid-Poorhasani.png"
+    },
+    {
+        id:2,
+        name : "دکتر ضیایی" ,
+        role : "مدیریت دبیرستان - مربی توسعه فردی و مشاور ارشد",
+        image : "Masoud-ziaei.png"
     },
     {
         id: 3,
@@ -20,7 +21,7 @@ let staffDatas = [
     {
         id:4,
         name : "مهندس حامد قاسمیان" ,
-        role : "مشاور تحصیلی - مدیر پایه دوزادهم",
+        role : "مشاور تحصیلی - مدیر پایه دوازدهم",
         image : "Hamed-Ghasemian.png"
     },
     {
@@ -38,7 +39,7 @@ let staffDatas = [
     {
         id : 7,
         name : "مهندس مهدی برهانی فرد",
-        role:"مشاور تحصیلی - معاونت اجزایی",
+        role:"مشاور تحصیلی - معاونت اجرایی",
         image:"Mahdi-Borhani.png"
     },
     {
@@ -68,12 +69,12 @@ let staffDatas = [
     {
         id:12,
         name:"دکتر حمیدرضا مهربان",
-        role:"دبیر شیمی",
+        role:"دبیر زیست شناسی",
         image:"Hamidreza-Mehraban.png"
     },
     {
         id:13,
-        name:"استاد میلاد قدیرزاده",
+        name:"استاد میلاد غدیرزاده",
         role:"دبیر شیمی",
         image:"Milad-Ghadirzadeh.png"
     },
