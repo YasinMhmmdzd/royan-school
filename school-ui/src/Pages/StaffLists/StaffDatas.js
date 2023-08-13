@@ -111,12 +111,13 @@ let staffDatas = [
     {
         id:19,
         name : "استاد امیرحسین محمودی",
-        name : "دبیر دینی و تاریخ معاصر" ,
+        role : "دبیر دینی و تاریخ معاصر" ,
         image : "AmirHossein-Mahmudi.png"
     },
     {
         id:20,
         name : "استاد حسین نعیمی",
+        role:"دبیر تربیت بدنی",
         image: "Hossein-Naeeimi.png"
     }
 ]
