@@ -136,7 +136,7 @@ header::before{
         opacity: 1;
     }
 }
-@media only screen and (max-width:770px){
+@media only screen and (max-width:1200px){
     .list-menu{
         display: none;
     }
