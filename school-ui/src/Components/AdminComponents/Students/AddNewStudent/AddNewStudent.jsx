@@ -15,38 +15,49 @@ function AddNewStudent() {
   const [studentField , setStudentField] = useState("")
   const [fetchStatus , setFetchStatus] = useState('')
   const [submitted , setSubmitted] = useState(false)
+  const [isInputPersian , setIsInputPersian] = useState(false)
 
   const newStudentHandler = (e) => {
     e.preventDefault()
     setSubmitted(true)
+    let pattern = /[۰-۹]/g
+    let nationalCodeResult = studentNationalCode.match(pattern)
     if(studentNationalCode.length === 10 && studentPhoneNumber.length === 11 && studentMohterPhoneNumber.length === 11 && studentFatherNumber.length === 11 && studentField !== "" && studentGrade !==""){
-      setFetchStatus('pending')
-      axios.post("https://school-node.iran.liara.run/admin/user/signup" , {
-        fullName : studentFullName ,
-        fatherName : studentFatherName,
-        phoneNumber : studentPhoneNumber , 
-        uniqueCode : studentNationalCode ,
-        motherNumber : studentMohterPhoneNumber ,
-        fatherNumber : studentFatherNumber , 
-        Grade : studentGrade , 
-        studyField : studentField
-      } ,{
-        headers : {
-          token : Cookies.get("adminToken")
-        }
-      }).then(
-        (res) => {
-          setFetchStatus(res.data.message)
-          setStudentFullName("")
-          setStudentFatherName("")
-          setStudentPhoneNumber("")
-          setStudentNationalCode("")
-          setStudentMotherPhoneNumber("")
-          setStudentFatherNumber("")
-          setStudentGrade("")
-          setStudentField("")
-        }
-      )
+      if(nationalCodeResult === null){
+
+        setFetchStatus('pending')
+        axios.post("https://school-node.iran.liara.run/admin/user/signup" , {
+          fullName : studentFullName ,
+          fatherName : studentFatherName,
+          phoneNumber : studentPhoneNumber , 
+          uniqueCode : studentNationalCode ,
+          motherNumber : studentMohterPhoneNumber ,
+          fatherNumber : studentFatherNumber , 
+          Grade : studentGrade , 
+          studyField : studentField
+        } ,{
+          headers : {
+            token : Cookies.get("adminToken")
+          }
+        }).then(
+          (res) => {
+            setFetchStatus(res.data.message)
+            setStudentFullName("")
+            setStudentFatherName("")
+            setStudentPhoneNumber("")
+            setStudentNationalCode("")
+            setStudentMotherPhoneNumber("")
+            setStudentFatherNumber("")
+            setStudentGrade("")
+            setStudentField("")
+          }
+        )
+
+
+      }
+      else{
+        setIsInputPersian(true)
+      }
     }
   }
 
@@ -113,6 +124,11 @@ function AddNewStudent() {
       {
         fetchStatus === "user-used" && (
           <p className="err">این کد ملی قبلا در سیستم ثبت شده</p>
+        )
+      }
+      {
+        (submitted && isInputPersian) && (
+          <p className="err">لطفا زبان کیبورد را انگلیسی کنید</p>
         )
       }
       </form>
