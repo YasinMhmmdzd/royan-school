@@ -38,7 +38,10 @@ function Login() {
     const submitStudentHandler = (e) => {
         e.preventDefault()
         setIsStudentSubmitted(true)
-        if(studentNationalCode.length === 10 && studentPhoneNumber.length === 11){
+        let pattern = "/۰-۹/g"
+        let nationalCodeResult = studentNationalCode.match(pattern)
+        let phoneNumberResult = studentPhoneNumber.match(pattern)
+        if(studentNationalCode.length === 10 && studentPhoneNumber.length === 11 && (nationalCodeResult !== null || nationalCodeResult!== undefined || nationalCodeResult !== "") && (phoneNumberResult !== null || phoneNumberResult!== undefined || phoneNumberResult !== "")){
             setStudentStatus("pending")
             axios.post("https://school-node.iran.liara.run/login/user" , {
                 uniqueCode : studentNationalCode , 
@@ -142,6 +145,11 @@ function Login() {
                             <p className="success">در حال انتقال به صفحه ویدیو ها</p>
                             <Navigate to="/student-courses" />
                             </>
+                        )
+                    }
+                    {
+                        (isStudentSubmitted && studentStatus === "not-valid") && (
+                            <p className="err">دانش آموزی با این کد ملی وجود ندارد</p>
                         )
                     }
                 </form>
