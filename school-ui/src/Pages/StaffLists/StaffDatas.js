@@ -98,7 +98,7 @@ let staffDatas = [
     },
     {
         id:17,
-        name:"استاد محمد امین قبانچی",
+        name:"استاد محمد امین قپانچی",
         role : "دبیر ریاضی",
         image : "Mohammadamin-Ghapanchi.png"
     },
@@ -110,7 +110,7 @@ let staffDatas = [
     },
     {
         id:19,
-        name : "استاد امیرحسین محمودی",
+        name : "استاد امیرحسن محمودی",
         role : "دبیر دینی و تاریخ معاصر" ,
         image : "AmirHossein-Mahmudi.png"
     },
