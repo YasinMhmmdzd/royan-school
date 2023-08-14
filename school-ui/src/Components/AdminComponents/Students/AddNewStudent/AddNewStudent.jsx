@@ -37,6 +37,14 @@ function AddNewStudent() {
       }).then(
         (res) => {
           setFetchStatus(res.data.message)
+          setStudentFullName("")
+          setStudentFatherName("")
+          setStudentPhoneNumber("")
+          setStudentNationalCode("")
+          setStudentMotherPhoneNumber("")
+          setStudentFatherNumber("")
+          setStudentGrade("")
+          setStudentField("")
         }
       )
     }
