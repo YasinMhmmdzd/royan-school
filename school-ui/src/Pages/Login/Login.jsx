@@ -20,6 +20,7 @@ function Login() {
     const [isAdminSubmitted , setIsAdminSubmitted] = useState(false)
     const [userLoggedIn , setUserLoggedIn] = useState(false)
     const [studentLoggedIn , setStudentLoggedIn] = useState(false)
+    const [isStudentInputPersian , setIsStudentInputPersian] = useState(false)
 
 
     useEffect(() => {
@@ -38,19 +39,32 @@ function Login() {
     const submitStudentHandler = (e) => {
         e.preventDefault()
         setIsStudentSubmitted(true)
-        if(studentNationalCode.length === 10 && studentPhoneNumber.length === 11){
-            setStudentStatus("pending")
-            axios.post("https://school-node.iran.liara.run/login/user" , {
-                uniqueCode : studentNationalCode , 
-                phoneNumber : studentPhoneNumber
-            }).then(
-                (res) => {
-                    setStudentStatus(res.data.message)
-                    if(res.data.message === "success"){
-                        Cookies.set("studentToken" , res.data.token , {expires: 14})
+        let pattern = /[۰-۹]/g
+        let nationalCodeResult = studentNationalCode.match(pattern)
+        let phoneNumberResult = studentPhoneNumber.match(pattern)
+        if(studentNationalCode.length === 10 && studentPhoneNumber.length === 11 ){
+
+
+            if(nationalCodeResult === null && phoneNumberResult === null){
+
+                setStudentStatus("pending")
+                axios.post("https://school-node.iran.liara.run/login/user" , {
+                    uniqueCode : studentNationalCode , 
+                    phoneNumber : studentPhoneNumber
+                }).then(
+                    (res) => {
+                        setStudentStatus(res.data.message)
+                        if(res.data.message === "success"){
+                            Cookies.set("studentToken" , res.data.token , {expires: 14})
+                        }
                     }
-                }
-            )
+                )
+
+
+            }
+            else{
+                setIsStudentInputPersian(true)
+            }
         }
     }
 
@@ -143,6 +157,18 @@ function Login() {
                             <Navigate to="/student-courses" />
                             </>
                         )
+                    }
+                    {
+                        (isStudentSubmitted && studentStatus === "not-valid") && (
+                            <p className="err">دانش آموزی با این کد ملی وجود ندارد</p>
+                        )
+                    }
+                    {
+                    (isStudentSubmitted && isStudentInputPersian) && (
+                        <p className="err">
+                            لطفا زبان کیبورد را انگلیسی کنید
+                        </p>
+                    )
                     }
                 </form>
                     )}

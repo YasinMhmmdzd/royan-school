@@ -23,10 +23,10 @@ function RightNav({adminName}) {
         <img src="../images/logo-black.webp" alt="لوگوی دبیرستان رویان" />
         <h5>سلام {adminName}</h5>
         <ul className="list-menu-admin">
-        <li className="list-menu-item-admin"><Link to="/" className='list-link'><FaHome className='list-icon'/> صفحه اصلی</Link></li>
-          <li className="list-menu-item-admin"><Link to="/admin/students" className='list-link'><FaUsers className='list-icon'/> دانش آموزان</Link></li>
-          <li className="list-menu-item-admin"><Link to="/admin/admins" className='list-link'><BsFillKeyFill className='list-icon'/>مدیران</Link></li>
-          <li className="list-menu-item-admin"><Link to="/admin/courses" className='list-link'><BiSolidVideos className='list-icon'/> دوره های آموزشی</Link></li>
+        <Link to="/" className='list-link'><li className="list-menu-item-admin"><FaHome className='list-icon'/> صفحه اصلی</li></Link>
+        <Link to="/admin/students" className='list-link'><li className="list-menu-item-admin"><FaUsers className='list-icon'/> دانش آموزان</li></Link>
+        <Link to="/admin/admins" className='list-link'><li className="list-menu-item-admin"><BsFillKeyFill className='list-icon'/>مدیران</li></Link>
+        <Link to="/admin/courses" className='list-link'><li className="list-menu-item-admin"><BiSolidVideos className='list-icon'/> دوره های آموزشی</li></Link>
         </ul>
       </div>
       <div className="bottom-right-nav">

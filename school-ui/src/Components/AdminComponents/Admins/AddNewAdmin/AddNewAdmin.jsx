@@ -29,6 +29,9 @@ function AddNewAdmin() {
       })
       .then((res) =>{
         setFetchStatus(res.data.message)
+        setNewAdminFullName("")
+        setNewAdminName("")
+        setNewAdminPassword("")
       })
     
     }
@@ -41,19 +44,19 @@ function AddNewAdmin() {
       <form onSubmit={newAdminHandler}>
 
         
-        <input type="text" className='admin-signup-input' onChange={(e) => setNewAdminFullName(e.target.value)} placeholder='نام و نام خانوادگی'/>
+        <input type="text" className='admin-signup-input' value={newAdminFullName} onChange={(e) => setNewAdminFullName(e.target.value)} placeholder='نام و نام خانوادگی'/>
         {(isSubmitted && newAdminFullName.length < 2) && (
           <p className="err">نام باید بیشتر از 2 کاراکتر باشد</p>
         )}
 
 
-        <input type="text" className='admin-signup-input' onChange={(e) => setNewAdminName(e.target.value)} placeholder='نام کاربری (انگلیسی باشد)'/>
+        <input type="text" className='admin-signup-input' value={newAdminName} onChange={(e) => setNewAdminName(e.target.value)} placeholder='نام کاربری (انگلیسی باشد)'/>
         {(isSubmitted && newAdminName.length < 2) && (
           <p className="err">نام کاربری باید بیشتر از ۲ کاراکتر باشد</p>
         )}
 
 
-        <input type="password" className='admin-signup-input' onChange={(e) => setNewAdminPassword(e.target.value)} placeholder='رمز عبور‌(بیش از ۸ کاراکتر)'/>
+        <input type="password" className='admin-signup-input' value={newAdminPassword} onChange={(e) => setNewAdminPassword(e.target.value)} placeholder='رمز عبور‌(بیش از ۸ کاراکتر)'/>
         {(isSubmitted && newAdminPassword.length <= 7) && (
           <p className="err">رمز عبور باید بیش از ۸ کاراکتر باشد</p>
         )}

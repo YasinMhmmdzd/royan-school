@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import staffDatas from './StaffDatas'
 import StaffItem from './StaffItem/StaffItem'
 import Footer from '../../Components/Footer/Footer'
@@ -6,6 +6,9 @@ import { AiOutlineArrowLeft } from 'react-icons/ai'
 import "./StaffLists.css"
 import { Link } from 'react-router-dom'
 function StaffLists() {
+  useEffect(()=>{
+    document.title = "اساتید و کارکنان |‌دبیرستان زندگی رویان"
+  } , [])
   return (
     <> 
     <div className="staff-lists">

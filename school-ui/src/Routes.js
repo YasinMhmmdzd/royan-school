@@ -10,6 +10,9 @@ import StudentCourses from "./Pages/Students/StudentCourses/StudentCourses";
 import StudentLists from "./Components/AdminComponents/Students/StudentLists/StudentLists";
 import AdminInfo from "./Components/AdminComponents/AdminInfo/AdminInfo";
 import StaffLists from "./Pages/StaffLists/StaffLists";
+
+
+
 let pageRoutes = [
     {path:"/" , element:<Home />},
     {path:"/login" , element:<Login />},
