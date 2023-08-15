@@ -15,7 +15,7 @@ function MainAbout() {
             </p>
         </div>
         <div className="main-about-image">
-            <img src="./images/middle-image.jpg" alt="middl-about-image" />
+            <img src="./images/main-about-image.webp" alt="middl-about-image" />
         </div>
     </ScrollAnimation>
     </div>
