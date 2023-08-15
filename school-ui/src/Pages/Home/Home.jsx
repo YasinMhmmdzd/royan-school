@@ -10,7 +10,7 @@ function Home() {
 
   
   useEffect( ()=>{
-    document.title ="دبیرستان زندگی رویان"
+    document.title ="صفحه اصلی |‌دبیرستان زندگی رویان"
   } )
 
 
