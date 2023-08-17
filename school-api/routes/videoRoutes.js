@@ -1,30 +1,28 @@
 import { Router } from "express";
-import AWS from "aws-sdk";
 import multer from "multer";
-import multerS3 from "multer-s3";
+
+import { s3Upload } from "../utils/s3.js";
 
 const router = Router();
 
-const s3 = new AWS.S3({
-    endpoint: process.env.LIARA_ENDPOINT,
-    accessKeyId: process.env.LIARA_ACCESS_KEY,
-    secretAccessKey: process.env.LIARA_SECRET_KEY,
-    region: "default",
-});
-
 const upload = multer({
-    storage: multerS3({
-        bucket: process.env.LIARA_BUCKET_NAME,
-        s3,
-        key: (req, file, cb) => {
-            console.log(file);
-            cb(null, file.originalname);
-        },
-    }),
+    storage: multer.memoryStorage(),
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype.split("/")[0] === "image") {
+            cb(null, true);
+        } else {
+            cb("not valid", false);
+        }
+    },
 });
 
-router.post("/upload", upload.single("file"), (req, res) => {
-    console.log(req.file);
+router.post("/upload", upload.single("file"), async (req, res) => {
+    try {
+        await s3Upload(req.file);
+        res.json({ message: "success" });
+    } catch (error) {
+        res.json({ message: error });
+    }
 });
 
 export default router;
