@@ -10,6 +10,7 @@ import StudentCourses from "./Pages/Students/StudentCourses/StudentCourses";
 import StudentLists from "./Components/AdminComponents/Students/StudentLists/StudentLists";
 import AdminInfo from "./Components/AdminComponents/AdminInfo/AdminInfo";
 import StaffLists from "./Pages/StaffLists/StaffLists";
+import AdminCourses from "./Components/AdminComponents/AdminCourses/AdminCourses";
 
 
 
@@ -27,6 +28,7 @@ let pageRoutes = [
             {path:"add" , element:<AddNewStudent />} , 
             {path:"list" , element:<StudentLists />}
         ]},
+        {path:"courses" , element:<AdminCourses />},
         {path: "home" , element:<AdminInfo />},
         {path:"admins" , element:<Admins /> , children:[
             {path:"add" , element:<AddNewAdmin />},
