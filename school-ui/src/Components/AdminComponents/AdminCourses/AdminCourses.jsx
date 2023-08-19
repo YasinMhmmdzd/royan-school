@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
-import {BsFillPencilFill} from "react-icons/bs"
+import {BsFillCameraVideoFill} from "react-icons/bs"
 
 import "./AdminCourses.css"
 import { Link } from "react-router-dom";
@@ -10,14 +10,14 @@ export default function AdminCourses(){
 
         <div className="admin-courses-item">
             <Link>
-        <AiOutlineCloudUpload />
+        <AiOutlineCloudUpload className="admin-courses-icon"/>
             آپلود ویدیو
             
             </Link>
         </div>
         <div className="admin-courses-item">
             <Link>
-        <BsFillPencilFill />
+        <BsFillCameraVideoFill className="admin-courses-icon"/>
         مشاهده ویدیو ها
             
             </Link>
