@@ -11,6 +11,8 @@ import StudentLists from "./Components/AdminComponents/Students/StudentLists/Stu
 import AdminInfo from "./Components/AdminComponents/AdminInfo/AdminInfo";
 import StaffLists from "./Pages/StaffLists/StaffLists";
 import AdminCourses from "./Components/AdminComponents/AdminCourses/AdminCourses";
+import AdminCourseUpload from "./Components/AdminComponents/AdminCourses/AdminCourseUpload/AdminCourseUpload";
+import AdminCoursesLists from "./Components/AdminComponents/AdminCourses/AdmnCoursesLists/AdminCoursesLists";
 
 
 
@@ -28,7 +30,10 @@ let pageRoutes = [
             {path:"add" , element:<AddNewStudent />} , 
             {path:"list" , element:<StudentLists />}
         ]},
-        {path:"courses" , element:<AdminCourses />},
+        {path:"courses" , element:<AdminCourses /> , children:[
+            {path: "upload" , element:<AdminCourseUpload />},
+            {path:"lists" , element:<AdminCoursesLists />}
+        ]},
         {path: "home" , element:<AdminInfo />},
         {path:"admins" , element:<Admins /> , children:[
             {path:"add" , element:<AddNewAdmin />},
