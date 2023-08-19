@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./AdminCourseUpload.css"
+import axios from 'axios';
 function AdminCourseUpload() {
 
     const [appendedFileName , setAppendedFileName] = useState("")
@@ -10,6 +11,10 @@ function AdminCourseUpload() {
         const videoData = new FormData()
 
         videoData.append('file' , event.target.files[0])
+
+        axios.post("" , videoData , {
+            headers : {'Content-Type': 'multipart/form-data'}
+        })
 
     }
 
@@ -21,7 +26,7 @@ function AdminCourseUpload() {
 
             <label className='upload-video-lable'>
                 
-            <input type="file" className='upload-video-input' style={{color:'blue'}} onChange={(event) => setAppendedFileName(event.target.files[0].name)}/>
+            <input type="file" className='upload-video-input' accept='.mp4' style={{color:'blue'}} onChange={(event) => setAppendedFileName(event.target.files[0].name)}/>
             <AiOutlineCloudUpload />
             آپلود فایل
             </label>
