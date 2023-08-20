@@ -4,17 +4,18 @@ import "./AdminCourseUpload.css"
 import axios from 'axios';
 function AdminCourseUpload() {
 
-    const [appendedFileName , setAppendedFileName] = useState("")
+    const [appendedFile , setAppendedFile] = useState("")
+    const videoData = new FormData()
+    videoData.append('file' , appendedFile)
+
 
     const uploadFileHandler = (event)=>{
-
-        const videoData = new FormData()
-
-        videoData.append('file' , event.target.files[0])
-
-        axios.post("" , videoData , {
+        event.preventDefault()
+        
+        console.log(videoData);
+        axios.post("https://school-node.iran.liara.run/videos/upload" , videoData , {
             headers : {'Content-Type': 'multipart/form-data'}
-        })
+        }).then(res => console.log(res))
 
     }
 
@@ -26,12 +27,10 @@ function AdminCourseUpload() {
 
             <label className='upload-video-lable'>
                 
-            <input type="file" className='upload-video-input' accept='.mp4' style={{color:'blue'}} onChange={(event) => setAppendedFileName(event.target.files[0].name)}/>
+            <input type="file" className='upload-video-input' accept='.mp4' style={{color:'blue'}} onChange={(event)=>setAppendedFile(event.target.files[0])}/>
             <AiOutlineCloudUpload />
             آپلود فایل
             </label>
-
-            {appendedFileName}
             <button className='upload-video-button'>ارسال فایل</button>
         </form>
 
