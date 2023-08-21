@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const videoSchema = new Schema({
-    feild: {
+    studyField: {
         type: String,
         required: true,
         trim: true,
@@ -15,6 +15,11 @@ const videoSchema = new Schema({
         type: String,
         required: true,
         unique: true,
+        trim: true,
+    },
+    title: {
+        type: String,
+        required: true,
         trim: true,
     },
 });
