@@ -21,7 +21,6 @@ const upload = multer({
 // @desc   upload video
 // @route  POST /videos/upload
 // @access private admin
-
 router.post("/upload", auth, upload.any(), async (req, res) => {
     try {
         if (!req.body.studyField || !req.body.grade || !req.body.name || !req.body.title) {
@@ -35,6 +34,17 @@ router.post("/upload", auth, upload.any(), async (req, res) => {
         });
         await s3Upload(req.files[0], req.body.name);
         res.json({ message: "success" });
+    } catch (error) {
+        res.json({ message: error });
+    }
+});
+
+// @desc   get list video
+// @route  GET /videos/list
+// @access private admin
+router.get("/list", auth, async (req, res) => {
+    try {
+        res.json({ message: "success", list: await Video.find() });
     } catch (error) {
         res.json({ message: error });
     }
