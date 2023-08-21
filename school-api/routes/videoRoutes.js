@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
 
-import { s3Upload, s3Download } from "../utils/s3.js";
+import { s3Upload, s3Download, s3Delete } from "../utils/s3.js";
 import { auth } from "../middlewares/auth.js";
 import { Video } from "../model/videoModel.js";
 
@@ -47,6 +47,20 @@ router.get("/list", auth, async (req, res) => {
         res.json({ message: "success", list: await Video.find() });
     } catch (error) {
         res.json({ message: error });
+    }
+});
+
+// @desc   delete video
+// @route  DELETE /videos/delete/:name
+// @access private admin
+router.delete("/delete/:name?", auth, async (req, res) => {
+    try {
+        console.log(req.params.name);
+        await Video.findOneAndDelete({ name: req.params.name });
+        await s3Delete(req.params.name);
+        res.json({ message: success });
+    } catch (error) {
+        res.json({ message: "not-video" });
     }
 });
 
