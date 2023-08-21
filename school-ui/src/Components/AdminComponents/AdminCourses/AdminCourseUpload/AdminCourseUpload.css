@@ -42,7 +42,9 @@ input[type="file"] {
     box-shadow: rgba(60, 103, 83, 0.5) 0px 30px 60px -12px, rgba(0, 63, 49, 0.5) 0px 18px 36px -18px;
 }
 .video-select{
-    all: unset;
+    border: none;
+    outline: none;
+    font-family: kalameh;
     display: block;
     padding: 10px;
     background-color: white;

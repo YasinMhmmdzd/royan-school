@@ -27,7 +27,7 @@ function AdminCourseUpload() {
         event.preventDefault()
         setSubmitted(true)
         if(appendedFile !== null && videoTitle.length > 0 && videoName.length > 0 && videoField.length > 0 && videoGrade.length > 0){
-
+            setVideoStatus("pending")
             axios.post("https://school-node.iran.liara.run/videos/upload" , videoData , {
                 headers : {
                     token : cookies.get("adminToken"),
@@ -66,9 +66,9 @@ function AdminCourseUpload() {
                 ((submitted && videoTitle.length <=0) && (
                     <p className='err'>تیتر ویدیو را وارد کنید</p>
                 ))
-            }
+            }‌
             <select className='video-select' onChange={(e) => setVideoGrade(e.target.value)}>
-                <option value="">---</option>
+                <option value="">پایه تحصیلی</option>
                 <option value="1">دهم</option>
                 <option value="2">یازدهم</option>
                 <option value="3">دوازدهم</option>
@@ -79,7 +79,7 @@ function AdminCourseUpload() {
                 )
             }
             <select className='video-select' onChange={(e) => setVideoField(e.target.value)}>
-                <option value="">---</option>
+                <option value="">رشته</option>
                 <option value="1">ریاضی</option>
                 <option value="2">تجربی</option>
             </select>
@@ -89,7 +89,19 @@ function AdminCourseUpload() {
                 )
             }
             <button className='upload-video-button'>ارسال فایل</button>
-
+            {(submitted && videoStatus === "pending") && (
+                <p className="loading">درحال پردازش ...</p>
+            )}
+            {
+                (submitted && videoStatus === "input-not-valid") && (
+                    <p className="err">مقادیر ورودی معتبر نیست</p>
+                )
+            }
+            {
+                (submitted && videoStatus === "success") && (
+                    <p className="success" style={{textAlign:'center' , animation:'none'}}>آپلود ویدیو انجام شد</p>
+                )
+            }
         </form>
 
     </div>
