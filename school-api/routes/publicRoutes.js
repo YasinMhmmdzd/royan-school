@@ -41,7 +41,7 @@ router.post("/login/user", async (req, res) => {
         const { uniqueCode, phoneNumber } = req.body;
         const isMatch = await User.findOne({ uniqueCode });
         if (!isMatch || phoneNumber != isMatch.phoneNumber) {
-            return res.json({ message: "not-valid1" });
+            return res.json({ message: "not-valid" });
         }
         const userPayload = {
             id: isMatch._id,

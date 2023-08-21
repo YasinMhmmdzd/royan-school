@@ -7,6 +7,7 @@ import { connectDB } from "./utils/db.js";
 import publicRoutes from "./routes/publicRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import videoRoutes from "./routes/videoRoutes.js";
 
 const app = express();
 //* config
@@ -24,5 +25,6 @@ app.use(express.json());
 app.use(publicRoutes);
 app.use("/admin", adminRoutes);
 app.use("/user", userRoutes);
+app.use("/videos", videoRoutes);
 
 app.listen(process.env.PORT, () => console.log(`server is runing on port ${process.env.PORT} and mode ${process.env.NODE_ENV}`));
