@@ -6,17 +6,21 @@ function AdminCourseUpload() {
 
     const [appendedFile , setAppendedFile] = useState("")
     const videoData = new FormData()
+    videoData.append("title" , "AmirMohammad")
     videoData.append('file' , appendedFile)
-
+    
 
     const uploadFileHandler = (event)=>{
         event.preventDefault()
-        
+
+        // var options = {file : videoData , grade : "1" , title : "Amir"}
         console.log(videoData);
         axios.post("https://school-node.iran.liara.run/videos/upload" , videoData , {
-            headers : {'Content-Type': 'multipart/form-data'}
-        }).then(res => console.log(res))
+            headers : {
 
+                'Content-Type': 'multipart/form-data',
+            }
+        }).then(res => console.log(res))
     }
 
   return (
@@ -31,7 +35,22 @@ function AdminCourseUpload() {
             <AiOutlineCloudUpload />
             آپلود فایل
             </label>
+
+            <input type="text" className='video-input' placeholder='نام فایل'/>
+            <input type="text" className='video-input' placeholder='تیتر ویدیو'/>‌
+            <select className='video-select'>
+                <option value="">---</option>
+                <option value="1">دهم</option>
+                <option value="2">یازدهم</option>
+                <option value="3">دوازدهم</option>
+            </select>
+            <select className='video-select'>
+                <option value="">---</option>
+                <option value="1">ریاضی</option>
+                <option value="2">تجربی</option>
+            </select>
             <button className='upload-video-button'>ارسال فایل</button>
+
         </form>
 
     </div>
