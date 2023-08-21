@@ -5,16 +5,24 @@ import axios from 'axios';
 function AdminCourseUpload() {
 
     const [appendedFile , setAppendedFile] = useState("")
+    const [videoTitle , setVideoTitle] = useState("")
+    const [videoName , setVideoName] = useState("")
+    const [videoGrade , setVideoGrade] = useState("")
+    const [videoField , setVideoField] = useState("")
+
     const videoData = new FormData()
-    videoData.append("title" , "AmirMohammad")
+
+
     videoData.append('file' , appendedFile)
+    videoData.append("title" , videoTitle)
+    videoData.append("name" , videoName)
+    videoData.append("grade" , videoGrade)
+    videoData.append("studyField" , videoField)
     
 
     const uploadFileHandler = (event)=>{
         event.preventDefault()
 
-        // var options = {file : videoData , grade : "1" , title : "Amir"}
-        console.log(videoData);
         axios.post("https://school-node.iran.liara.run/videos/upload" , videoData , {
             headers : {
 
@@ -36,15 +44,15 @@ function AdminCourseUpload() {
             آپلود فایل
             </label>
 
-            <input type="text" className='video-input' placeholder='نام فایل'/>
-            <input type="text" className='video-input' placeholder='تیتر ویدیو'/>‌
-            <select className='video-select'>
+            <input type="text" className='video-input' placeholder='نام فایل' onChange={(e) => setVideoTitle(e.target.value)}/>
+            <input type="text" className='video-input' placeholder='تیتر ویدیو' onChange={(e) => setVideoName(e.target.value)} />‌
+            <select className='video-select' onChange={(e) => setVideoGrade(e.target.value)}>
                 <option value="">---</option>
                 <option value="1">دهم</option>
                 <option value="2">یازدهم</option>
                 <option value="3">دوازدهم</option>
             </select>
-            <select className='video-select'>
+            <select className='video-select' onChange={(e) => setVideoField(e.target.value)}>
                 <option value="">---</option>
                 <option value="1">ریاضی</option>
                 <option value="2">تجربی</option>
