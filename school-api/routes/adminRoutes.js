@@ -9,7 +9,7 @@ const router = Router();
 
 // @desc get about admin
 // @route GET /admin
-// @access private
+// @access private admin
 
 router.get("/", auth, (req, res) => {
     res.json({ message: "verify-ok", admin: req.user });
@@ -17,7 +17,7 @@ router.get("/", auth, (req, res) => {
 
 // @desc get list admins
 // @route GET /admin/getAll
-// @access private
+// @access private admin
 router.get("/getAll", auth, async (req, res) => {
     try {
         const admins = await Admin.find();
@@ -29,7 +29,7 @@ router.get("/getAll", auth, async (req, res) => {
 
 // @desc  signup admin for SuperAdmin
 // @route POST /admin/signup
-// @access private
+// @access private admin
 router.post("/signup", auth, async (req, res) => {
     try {
         if (req.user.role == "admin") return res.json({ message: "admin-not-valid" });
@@ -51,7 +51,7 @@ router.post("/signup", auth, async (req, res) => {
 
 // @desc signup user for SuperAdmin
 // @route POST /admin/user/signup
-// @access private
+// @access private admin
 router.post("/user/signup", auth, async (req, res) => {
     try {
         const { fullName, uniqueCode, motherNumber, fatherNumber, phoneNumber, Grade, studyField, fatherName } = req.body;
@@ -81,7 +81,7 @@ router.post("/user/signup", auth, async (req, res) => {
 
 // @desc get list of users
 // @route GET /admin/user/getAll
-// @access private
+// @access private admin
 
 router.get("/user/getAll", async (req, res) => {
     try {
@@ -94,7 +94,7 @@ router.get("/user/getAll", async (req, res) => {
 
 // @desc get info for users&admin
 // @route GET /admin/getInfo
-// @access private
+// @access private admin
 router.get("/getinfo", auth, async (req, res) => {
     try {
         const countOfUser = await User.count();
@@ -110,7 +110,7 @@ router.get("/getinfo", auth, async (req, res) => {
 
 // @desc delete admin
 // @route DELETE /admin/delete
-// @access private
+// @access private admin
 
 router.delete("/delete/:userName?", auth, async (req, res) => {
     try {
@@ -124,7 +124,7 @@ router.delete("/delete/:userName?", auth, async (req, res) => {
 
 // @desc delete user
 // @route DELETE /admin/delete
-// @accsess private
+// @accsess private admin
 
 router.delete("/user/delete/:uniqueCode?", auth, async (req, res) => {
     try {
