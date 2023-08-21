@@ -17,7 +17,7 @@ export const s3Upload = async (file, name) => {
             })
             .promise();
     } catch (error) {
-        console.log(error);
+        throw error;
     }
 };
 
@@ -32,6 +32,6 @@ export const s3Download = async (name) => {
         const params = { Bucket: process.env.LIARA_BUCKET_NAME, Key: name, Expires: 60 };
         return await s3.getSignedUrlPromise("getObject", params);
     } catch (error) {
-        console.log(error);
+        throw error;
     }
 };
