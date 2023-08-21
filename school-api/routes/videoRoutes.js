@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
 
-import { s3Upload } from "../utils/s3.js";
+import { s3Upload, s3Download } from "../utils/s3.js";
 
 const router = Router();
 
@@ -16,9 +16,10 @@ const upload = multer({
     },
 });
 
-router.post("/upload", upload.single("file"), async (req, res) => {
+router.post("/upload", upload.any(), async (req, res) => {
+    console.log(req.body.title, req.files);
     try {
-        await s3Upload(req.file);
+        await s3Upload(req.files[0]);
         res.json({ message: "success" });
     } catch (error) {
         res.json({ message: error });
