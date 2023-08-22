@@ -19,7 +19,7 @@ function CoursesVideo() {
         headers :{
           token : Cookies.get("studentToken")
         }
-      }).then(res => setVideoInfos(res.data.link))
+      }).then(res => setVideoInfos(res.data))
 
 
 
@@ -32,11 +32,17 @@ function CoursesVideo() {
       <Link className='back-link' to="/student-courses">
         <AiOutlineArrowLeft />
       </Link>
-      <h2>تیتر ویدیو</h2>
-      <video onContextMenu={(e) => e.preventDefault()} src={videoInfos} controls controlsList="nodownload" className='video'>
-        <source src={videoInfos}/>
+      <h2> {videoInfos.title} </h2>
+      <video onContextMenu={(e) => e.preventDefault()} src={videoInfos.link} controls controlsList="nodownload" className='video'>
+        <source src={videoInfos.link}/>
       </video>
-      <p><MdSchool /> دهم - ریاضی</p>
+      <p><MdSchool />
+      {videoInfos.grade === "1" && ("دهم")}
+      {videoInfos.grade === "2" && ("یازدهم")}
+      {videoInfos.grade === "3" && ("دوازدهم")}
+       -
+        {videoInfos.studyField === "1" ? 'تجربی' : 'ریاضی'}
+        </p>
     </div>
 
     </>
