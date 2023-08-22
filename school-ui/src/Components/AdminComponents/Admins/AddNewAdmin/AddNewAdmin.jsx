@@ -32,6 +32,7 @@ function AddNewAdmin() {
         setNewAdminFullName("")
         setNewAdminName("")
         setNewAdminPassword("")
+        setIsSubmitted(false)
       })
     
     }

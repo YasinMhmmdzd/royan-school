@@ -50,6 +50,7 @@ function AddNewStudent() {
             setStudentFatherNumber("")
             setStudentGrade("")
             setStudentField("")
+            setSubmitted(false)
           }
         )
 
