@@ -28,7 +28,7 @@ export const s3Download = async (name) => {
             secretAccessKey: process.env.LIARA_SECRET_KEY,
             region: "default",
         });
-        return await s3.getSignedUrlPromise("getObject", { Bucket: process.env.LIARA_BUCKET_NAME, Key: `${name}.mp4`, Expires: 60 });
+        return await s3.getSignedUrlPromise("getObject", { Bucket: process.env.LIARA_BUCKET_NAME, Key: `${name}.mp4`, Expires: 3600 });
     } catch (error) {
         throw error;
     }
