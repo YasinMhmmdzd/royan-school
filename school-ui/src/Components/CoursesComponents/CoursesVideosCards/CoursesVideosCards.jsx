@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function CoursesVideosCards({name, title , grade}) {
 
   return (
-    <Link to={`/student-courses/${name}`}>
+    <Link to={`/student-courses/video/${name}`}>
     
     <div className="courses-videos-cards">
         <img src="./images/video-cover.jpg" alt="image cover" className="course-cover" />
