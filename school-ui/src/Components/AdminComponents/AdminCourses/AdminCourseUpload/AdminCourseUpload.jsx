@@ -53,7 +53,7 @@ function AdminCourseUpload() {
             {(submitted && appendedFile === null) && (
                 <p className="err">فایل خالی است!</p>
             )}
-            {(submitted && appendedFile!== null) && (
+            {appendedFile!== null && (
                 appendedFile.name
             )}
 
@@ -90,7 +90,7 @@ function AdminCourseUpload() {
             }
             <button className='upload-video-button'>ارسال فایل</button>
             {(submitted && videoStatus === "pending") && (
-                <p className="loading">درحال پردازش ...</p>
+                <p className="loading" style={{textAlign:'center'}}>درحال پردازش ...</p>
             )}
             {
                 (submitted && videoStatus === "input-not-valid") && (
