@@ -10,6 +10,7 @@ function StudentCourses() {
 
   const [studentInfos , setStudentInfos] = useState([])
   const [verifyStatus , setVerifyStatus] = useState('')
+  const [allVideos , setAllVideos] = useState([])
 
   async function fetchData(){
     await axios.get("https://school-node.iran.liara.run/user" , {
@@ -25,7 +26,16 @@ function StudentCourses() {
   useEffect(()=>{
     fetchData()
     document.title ="دوره های آموزشی | دبیرستان زندگی رویان"
-  })
+
+
+    axios.get("https://school-node.iran.liara.run/videos/list" , {
+      headers : {
+        token : Cookies.get("studentToken")
+      }
+    }).then(res => setAllVideos(res.data.list))
+
+
+  } , [])
 
 
   return (
@@ -45,9 +55,11 @@ function StudentCourses() {
       <div className="student-courses">
         <CoursesHeader />
         <div className="courses-videos-container">
-          <CoursesVideosCards />
-          <CoursesVideosCards />
-          <CoursesVideosCards />
+          {allVideos.map(video => (
+
+          <CoursesVideosCards key={video.id} {...video}/>
+
+          ))}
         </div>
       </div>
 

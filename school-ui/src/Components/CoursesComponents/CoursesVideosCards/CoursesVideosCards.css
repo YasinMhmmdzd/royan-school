@@ -1,8 +1,12 @@
-.courses-videos-cards{
+.card-links{
     width: 25%;
+    margin: 20px auto;
+    color: black;
+}
+.courses-videos-cards{
+    width: 100%;
     box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
     border-radius: 10px;
-    margin: 20px auto;
 }
 .course-cover{
     width: 100%;
@@ -25,12 +29,12 @@
     border-top: 1px solid #888;
 }
 @media only screen and (max-width:1000px){
-    .courses-videos-cards{
+    .card-links{
         width: 45%;
     }
 }
 @media only screen and (max-width:550px){
-    .courses-videos-cards{
+    .card-links{
         width: 85%;
     }
 }

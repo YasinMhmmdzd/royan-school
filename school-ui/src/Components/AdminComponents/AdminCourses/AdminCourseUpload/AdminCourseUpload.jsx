@@ -53,7 +53,7 @@ function AdminCourseUpload() {
             {(submitted && appendedFile === null) && (
                 <p className="err">فایل خالی است!</p>
             )}
-            {appendedFile!== null && (
+            {appendedFile !== null&& (
                 appendedFile.name
             )}
 
