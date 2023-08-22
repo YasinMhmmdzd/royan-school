@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {Navigate} from 'react-router-dom'
 import "./AdminCoursesLists.css"
 import axios from 'axios'
 import Cookies from 'js-cookie'
@@ -6,6 +7,7 @@ import {AiFillDelete} from "react-icons/ai"
 function AdminCoursesLists() {
 
   const [allVideos , setAllVideos] = useState([])
+  const [deleteStatus , setDeleteStatus] = useState("")
 
   useEffect(()=>{
     axios.get("https://school-node.iran.liara.run/videos/list" , {
@@ -16,7 +18,7 @@ function AdminCoursesLists() {
 
     }).then(res => setAllVideos(res.data.list))
 
-  },[])
+  },[deleteStatus])
 
 
   const deleteVideo = (videoName) => {
@@ -26,12 +28,23 @@ function AdminCoursesLists() {
         token : Cookies.get("adminToken")
       }
 
-    }).then(res => console.log(res))
+    }).then(res => setDeleteStatus(res.data.message))
   }
 
   return (
     <div className='admin-courses-lists left-part'>
       <h2>فهرست ویدیو ها</h2>
+
+      {
+        deleteStatus === "success" && (
+          <>
+          <p className="success" style={{animation:'none' , textAlign:'center'}}>
+           ویدیو حذف شد
+          </p>
+          <Navigate to="/admin/courses/lists" />
+          </>
+        )
+      }
 
       <table>
         <thead>

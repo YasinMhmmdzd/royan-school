@@ -22,7 +22,7 @@ function StudentLists() {
     }).then((res) => {
       setAllStudents(res.data)
     })
-  } , [])
+  } , [fetchDeleteStatus])
 
   const setFilter = (grade , field) =>{
     let filteredStudents = allStudents.filter(student => student.Grade === grade && student.studyField === field)
