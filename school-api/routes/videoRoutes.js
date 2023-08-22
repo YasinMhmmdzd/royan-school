@@ -72,7 +72,14 @@ router.delete("/delete/:name?", auth, async (req, res) => {
 router.get("/link/:name?", authUser, async (req, res) => {
     try {
         const link = await s3Download(req.params.name);
-        res.json({ message: "success", link });
+        const video = await Video.findOne({ name: req.params.name });
+        res.json({
+            message: "success",
+            link,
+            title: video.title,
+            grade: video.grade,
+            studyField: video.studyField,
+        });
     } catch (error) {
         res.json({ message: "not-video", error });
     }
