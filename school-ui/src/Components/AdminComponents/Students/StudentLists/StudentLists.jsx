@@ -49,6 +49,7 @@ function StudentLists() {
         <button onClick={() => setFilter("3" , "2")}>کلاس دوزادهم ریاضی</button>
       </div>
       <div className="table-container">
+        <h2>فهرست دانش آموزان</h2>
                   {
                     fetchDeleteStatus === "delete-ok" && (
                       <>
