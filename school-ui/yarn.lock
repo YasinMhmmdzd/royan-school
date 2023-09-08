@@ -6200,6 +6200,11 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+liara@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/liara/-/liara-0.0.1.tgz#d6a9f3ee632074e683ce660837b242af559c938a"
+  integrity sha512-d6uhPm/HxV2HU3kIelynAsLdomN5tR2ta4JDsAP/bIj9nvInY8pGuso5iDyOLra7XqutvB8tQb7bRW7tizelPw==
+
 lilconfig@^2.0.3, lilconfig@^2.0.5, lilconfig@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.1.0.tgz#78e23ac89ebb7e1bfbf25b18043de756548e7f52"
