@@ -39,10 +39,14 @@ th{
     padding: 8px;
     margin: 0;
 }
+td , th{
+    min-width: 150px;
+}
 @media only screen and (max-width:1000px){
     .student-lists-container{
         width: 100%;
     }
+
 }
 @media only screen and (max-width:750px){
     .student-lists-container{
