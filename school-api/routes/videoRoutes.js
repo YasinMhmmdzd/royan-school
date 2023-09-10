@@ -44,8 +44,8 @@ router.post("/upload", auth, upload.any(), async (req, res) => {
 
 // @desc   get list video
 // @route  GET /videos/list
-// @access public
-router.get("/list", async (req, res) => {
+// @access private
+router.get("/list", auth, async (req, res) => {
     try {
         res.json({ message: "success", list: await Video.find() });
     } catch (error) {
