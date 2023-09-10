@@ -80,8 +80,8 @@ function AdminCourseUpload() {
             }
             <select className='video-select' onChange={(e) => setVideoField(e.target.value)}>
                 <option value="">رشته</option>
-                <option value="1">ریاضی</option>
-                <option value="2">تجربی</option>
+                <option value="1">تجربی</option>
+                <option value="2">ریاضی</option>
             </select>
             {
                 (submitted && videoField.length <= 0) && (

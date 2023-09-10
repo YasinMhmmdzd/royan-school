@@ -28,7 +28,7 @@ function StudentCourses() {
     document.title ="دوره های آموزشی | دبیرستان زندگی رویان"
 
 
-    axios.get("https://school-node.iran.liara.run/videos/list" , {
+    axios.get("https://school-node.iran.liara.run/user/getvideos" , {
       headers : {
         token : Cookies.get("studentToken")
       }
