@@ -41,7 +41,7 @@ router.post("/login/user", async (req, res) => {
         const { uniqueCode, phoneNumber } = req.body;
         const isMatch = await User.findOne({ uniqueCode });
         if (!isMatch || phoneNumber != isMatch.phoneNumber) {
-            return res.json({ message: "not-valid1" });
+            return res.json({ message: "not-valid" });
         }
         const userPayload = {
             id: isMatch._id,
@@ -50,7 +50,7 @@ router.post("/login/user", async (req, res) => {
             motherNumber: isMatch.motherNumber,
             fatherNumber: isMatch.fatherNumber,
             Grade: isMatch.Grade,
-            studyFeild: isMatch.studyFeild,
+            studyField: isMatch.studyField,
             role: "user",
         };
         jwt.sign(userPayload, process.env.JWT_SECRET, { expiresIn: "6d" }, (err, token) => {
